@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>levkin.ca — design options</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #08080a;
+      --fg: #eceae6;
+      --muted: #6e6c68;
+      --accent: #c4a574;
+      --border: #1c1b19;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+    header { margin-bottom: 3rem; }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 48ch; }
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    a.card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .preview {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      font-size: 0.7rem;
+    }
+    .preview--spec {
+      background: #f4f1ec;
+      color: #1a1a18;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+    .preview--slab {
+      background: #f5f5f0;
+      color: #0a0a0a;
+      font-weight: 800;
+      font-size: 2rem;
+      letter-spacing: -0.06em;
+      font-family: system-ui, sans-serif;
+    }
+    .preview--relay {
+      background: #1a1814;
+      color: #d4a574;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.2em;
+    }
+    .preview--relay::after {
+      content: '· · · ─ ─ ·';
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.55rem;
+      opacity: 0.5;
+    }
+    .preview--vault {
+      background: linear-gradient(160deg, #0c1410 0%, #1a2820 100%);
+      color: #c9b896;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+    .card-body { padding: 1.15rem 1.25rem 1.35rem; }
+    .card-body h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+    .tag {
+      display: inline-block;
+      margin-top: 0.65rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .kept {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted);
+      margin-left: 0.35rem;
+    }
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer code { font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="eyebrow">levkin.ca · round 3</p>
+      <h1>Four directions.</h1>
+      <p class="lead">Spec is back. Plus Slab, Relay, and Vault — three new concepts. Company-first throughout.</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="/spec/">
+        <div class="preview preview--spec">GET /company → 200</div>
+        <div class="card-body">
+          <h2>Spec <span class="kept">kept</span></h2>
+          <p>Levkin as an RFC. Endpoints, schemas, required properties. Precise and documentation-native.</p>
+          <span class="tag">paper · RFC · precise</span>
+        </div>
+      </a>
+
+      <a class="card" href="/slab/">
+        <div class="preview preview--slab">LEV</div>
+        <div class="card-body">
+          <h2>Slab</h2>
+          <p>Brutalist poster. Massive type, hard edges, zero decoration. Confidence without explaining itself.</p>
+          <span class="tag">brutalist · bold · minimal</span>
+        </div>
+      </a>
+
+      <a class="card" href="/relay/">
+        <div class="preview preview--relay">RELAY</div>
+        <div class="card-body">
+          <h2>Relay</h2>
+          <p>Telegraph and signal chain. Messages arrive, get decoded. Communication as craft.</p>
+          <span class="tag">vintage · interactive · warm</span>
+        </div>
+      </a>
+
+      <a class="card" href="/vault/">
+        <div class="preview preview--vault">Secured</div>
+        <div class="card-body">
+          <h2>Vault</h2>
+          <p>Institutional trust. Deep green, brass accents. For enterprise clients who need gravitas.</p>
+          <span class="tag">trust · enterprise · calm</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      <p><a href="https://git.levkin.ca">git.levkin.ca</a> · <code>cd ~/Documents/code/levkin.ca && npm run dev</code></p>
+    </footer>
+  </div>
+</body>
+</html>
