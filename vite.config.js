@@ -10,6 +10,7 @@ export default defineConfig({
         slab: resolve(__dirname, 'slab/index.html'),
         relay: resolve(__dirname, 'relay/index.html'),
         vault: resolve(__dirname, 'vault/index.html'),
+        stack: resolve(__dirname, 'stack/index.html'),
       },
     },
   },

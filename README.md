@@ -1,6 +1,6 @@
 # levkin.ca
 
-Four design concepts for the Levkin software development company homepage.
+Five design concepts for the Levkin software development company homepage.
 
 | Option | Path | Vibe |
 |--------|------|------|
@@ -8,8 +8,9 @@ Four design concepts for the Levkin software development company homepage.
 | **Slab** | `/slab/` | Brutalist poster, massive typography |
 | **Relay** | `/relay/` | Telegraph, signal chain, decoded messages |
 | **Vault** | `/vault/` | Institutional trust, enterprise gravitas |
+| **Stack** | `/stack/` | Sticky scroll layers L0–L6, services as a card stack |
 
-Open `/` to compare all four.
+Open `/` to compare all five.
 
 ## Develop
 

@@ -48,8 +48,11 @@
     @media (min-width: 640px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (min-width: 960px) {
-      .grid { grid-template-columns: repeat(4, 1fr); }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1200px) {
+      .grid { grid-template-columns: repeat(5, 1fr); }
     }
     a.card {
       display: block;
@@ -108,6 +111,25 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
     }
+    .preview--stack {
+      background: #0e0e10;
+      flex-direction: column;
+      gap: 4px;
+      padding: 1.5rem;
+    }
+    .preview--stack .card-layer {
+      width: 70%;
+      height: 14px;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(90deg, #2a2a32, #3a3a46);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .preview--stack .card-layer:nth-child(1) { width: 55%; opacity: 0.5; }
+    .preview--stack .card-layer:nth-child(2) { width: 62%; opacity: 0.65; }
+    .preview--stack .card-layer:nth-child(3) { width: 68%; opacity: 0.8; }
+    .preview--stack .card-layer:nth-child(4) { width: 75%; }
+    .preview--stack .card-layer:nth-child(5) { width: 82%; background: #4a4a58; }
     .card-body { padding: 1.15rem 1.25rem 1.35rem; }
     .card-body h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
     .card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
@@ -141,8 +163,8 @@
   <div class="wrap">
     <header>
       <p class="eyebrow">levkin.ca · round 3</p>
-      <h1>Four directions.</h1>
-      <p class="lead">Enriched from auto, caseware, iliadobkin, and jobs — proof points, stacks, clients, and booking. Company-first throughout.</p>
+      <h1>Five directions.</h1>
+      <p class="lead">Enriched from auto, caseware, iliadobkin, and jobs — plus Stack: scroll the layers. Company-first throughout.</p>
     </header>
 
     <div class="grid">
@@ -179,6 +201,21 @@
           <h2>Vault</h2>
           <p>Institutional trust. Deep green, brass accents. For enterprise clients who need gravitas.</p>
           <span class="tag">trust · enterprise · calm</span>
+        </div>
+      </a>
+
+      <a class="card" href="/stack/">
+        <div class="preview preview--stack">
+          <span class="card-layer"></span>
+          <span class="card-layer"></span>
+          <span class="card-layer"></span>
+          <span class="card-layer"></span>
+          <span class="card-layer"></span>
+        </div>
+        <div class="card-body">
+          <h2>Stack</h2>
+          <p>Scroll through layers — L0 foundation to L6 interface. Services as a literal stack of cards.</p>
+          <span class="tag">layers · scroll · architectural</span>
         </div>
       </a>
     </div>
