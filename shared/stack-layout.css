@@ -1,4 +1,4 @@
-/* Pull layers into one stack so sticky overlap works */
+/* Overlapping scroll slots — each layer covers the one below via z-index */
 .scroll-section {
   height: var(--stack-slot);
   position: relative;
@@ -19,17 +19,17 @@
   margin-bottom: 3rem;
 }
 
-/* Only the active layer shows its body; tabs always visible */
-.scroll-section:not(.is-active) .body,
-.scroll-section:not(.is-active) .layer-inner,
-.scroll-section:not(.is-active) .frame-body,
-.scroll-section:not(.is-active) .unit-body {
+/* Body visible only when card is stuck on the stack — next card covers previous */
+.scroll-section:not(.is-stuck) .body,
+.scroll-section:not(.is-stuck) .layer-inner,
+.scroll-section:not(.is-stuck) .frame-body,
+.scroll-section:not(.is-stuck) .unit-body {
   visibility: hidden;
-  height: 0;
   min-height: 0;
-  margin-top: 0 !important;
-  padding: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   border: none;
-  overflow: hidden;
   box-shadow: none;
+  overflow: hidden;
 }

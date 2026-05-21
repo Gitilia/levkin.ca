@@ -28,14 +28,18 @@ body {
 
 .frame {
   position: sticky;
+  top: var(--stack-reveal);
   margin: 0 0.5rem;
   border-left: 3px solid #3a3a44;
   background: #141418;
   box-shadow: 0 8px 0 #0a0a0c, 0 14px 28px rgba(0,0,0,0.45);
-  z-index: 10;
 }
 
 .frame-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + var(--stack-step) * var(--layer, 0));
   display: block;
   font-size: 0.66rem;
   color: #6b9b6b;
@@ -56,26 +60,13 @@ body {
   background: #141418;
 }
 
-.f0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); border-color: #c4a574; }
-.f0 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-tab-h)); }
-
-.f1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
-.f1 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 1 - var(--stack-tab-h)); }
-
-.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
-.f2 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 2 - var(--stack-tab-h)); }
-
-.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
-.f3 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 3 - var(--stack-tab-h)); }
-
-.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); border-color: #6b8b9b; }
-.f4 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 4 - var(--stack-tab-h)); }
-
-.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
-.f5 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 5 - var(--stack-tab-h)); }
-
-.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); border-color: #7eb87a; }
-.f6 .frame-body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 6 - var(--stack-tab-h)); }
+.f0 { z-index: 10; border-color: #c4a574; --layer: 0; }
+.f1 { z-index: 11; --layer: 1; }
+.f2 { z-index: 12; --layer: 2; }
+.f3 { z-index: 13; --layer: 3; }
+.f4 { z-index: 14; border-color: #6b8b9b; --layer: 4; }
+.f5 { z-index: 15; --layer: 5; }
+.f6 { z-index: 16; border-color: #7eb87a; --layer: 6; }
 
 .frame-body strong { color: #e8e6e3; font-weight: 500; display: block; margin-bottom: 0.2rem; }
 .frame-body p { color: #6b6966; font-size: 0.74rem; }

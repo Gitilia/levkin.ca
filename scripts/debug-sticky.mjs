@@ -2,7 +2,7 @@ import { chromium } from 'playwright';
 
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
-await page.goto('http://localhost:5176/stack-folder/', { waitUntil: 'networkidle' });
+await page.goto('http://localhost:5173/stack-folder/', { waitUntil: 'networkidle' });
 
 for (const y of [0, 400, 800, 1200]) {
   await page.evaluate((sy) => window.scrollTo(0, sy), y);

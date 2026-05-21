@@ -1,4 +1,4 @@
-/** Shared scroll-depth tracking + jump-to-layer for stack variants */
+/** Scroll depth + jump + hide upcoming cards until they cover the stack */
 export function initStackScroll(options = {}) {
   const {
     sectionSelector = '.scroll-section',
@@ -11,14 +11,22 @@ export function initStackScroll(options = {}) {
   const sections = document.querySelectorAll(sectionSelector);
   if (!sections.length) return;
 
+  const reveal = () => {
+    const v = getComputedStyle(document.documentElement).getPropertyValue('--stack-reveal').trim();
+    return parseFloat(v) || 344;
+  };
+
   const mid = () => window.innerHeight * 0.42;
 
   function updateDepth() {
+    const rLine = reveal();
     let active = 0;
+
     sections.forEach((sec) => {
       const r = sec.getBoundingClientRect();
       if (r.top <= mid() && r.bottom > mid()) active = Number(sec.dataset.layer);
     });
+
     if (depthEl) depthEl.textContent = `${depthPrefix}${active}`;
 
     document.querySelectorAll('.stack-ruler button, .stack-ruler [data-goto], .tab-rail button, .tab[data-goto]').forEach((el) => {
@@ -29,11 +37,17 @@ export function initStackScroll(options = {}) {
 
     sections.forEach((sec) => {
       const layer = Number(sec.dataset.layer);
-      const isActive = layer === active;
-      sec.classList.toggle('is-active', isActive);
       const panel = sec.querySelector(panelSelector);
       if (!panel) return;
-      panel.style.zIndex = isActive ? 100 : 10 + layer;
+
+      const r = sec.getBoundingClientRect();
+      const pr = panel.getBoundingClientRect();
+      const onStack = Math.abs(pr.top - rLine) < 10;
+      const past = r.bottom <= rLine;
+
+      sec.classList.toggle('is-active', layer === active);
+      sec.classList.toggle('is-stuck', onStack);
+      sec.classList.toggle('is-past', past);
     });
   }
 
@@ -49,5 +63,6 @@ export function initStackScroll(options = {}) {
   });
 
   window.addEventListener('scroll', updateDepth, { passive: true });
+  window.addEventListener('resize', updateDepth, { passive: true });
   updateDepth();
 }

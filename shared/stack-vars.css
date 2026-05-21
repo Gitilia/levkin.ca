@@ -1,4 +1,4 @@
-/* Shared stack scroll — overlapping sticky layers */
+/* Shared stack scroll — cards share one sticky line and cover via z-index */
 :root {
   --stack-nav: 2.5rem;
   --stack-stick: 3rem;
@@ -7,6 +7,7 @@
   --stack-reveal: calc(var(--stack-stick) + var(--stack-step) * 6 + var(--stack-tab-h));
   --stack-slot: 100vh;
   --stack-slot-last: 50vh;
+  /* Scroll one "deck" height before next card covers */
   --stack-pull: calc(var(--stack-slot) - var(--stack-reveal));
   --stack-body-h: calc(100dvh - var(--stack-reveal) - 1.25rem);
 }

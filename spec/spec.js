@@ -20,9 +20,9 @@ function fontIndexFromScale(scale) {
 }
 
 const THEME_COLORS = {
-  light: '#f6f3ee',
-  dim: '#c9c3b8',
-  dark: '#10100f',
+  light: '#e8e4dc',
+  dim: '#b8b2a6',
+  dark: '#080807',
 };
 
 function applyTheme(theme) {
@@ -83,7 +83,7 @@ function initPreferences() {
 }
 
 function initScrollSpy() {
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('.clause-anchor[id]');
   const links = document.querySelectorAll('.toc nav a');
   if (!sections.length || !links.length) return;
 

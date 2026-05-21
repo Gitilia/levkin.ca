@@ -4,7 +4,6 @@
 :root {
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --sans: 'Instrument Sans', system-ui, sans-serif;
-  --card-tab-h: 0.5rem;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,16 +36,19 @@ body {
 
 .layer {
   position: sticky;
+  top: var(--stack-reveal);
   margin: 0;
   border-radius: 8px 8px 6px 6px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 36px rgba(0,0,0,0.5);
-  z-index: 10;
 }
 
 .layer-tab {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: calc(100% + var(--stack-step) * var(--layer, 0));
   height: 6px;
-  margin: 0 10px -6px;
   border-radius: 5px 5px 0 0;
   background: inherit;
   filter: brightness(1.12);
@@ -60,26 +62,13 @@ body {
   min-height: var(--stack-body-h);
 }
 
-.layer-0 { background: #1c1c20; top: calc(var(--stack-stick) + var(--stack-step) * 0); }
-.layer-0 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--card-tab-h)); }
-
-.layer-1 { background: #24242c; top: calc(var(--stack-stick) + var(--stack-step) * 1); }
-.layer-1 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 1 - var(--card-tab-h)); }
-
-.layer-2 { background: #2c2c36; top: calc(var(--stack-stick) + var(--stack-step) * 2); }
-.layer-2 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 2 - var(--card-tab-h)); }
-
-.layer-3 { background: #343440; top: calc(var(--stack-stick) + var(--stack-step) * 3); }
-.layer-3 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 3 - var(--card-tab-h)); }
-
-.layer-4 { background: #3c3c4a; top: calc(var(--stack-stick) + var(--stack-step) * 4); }
-.layer-4 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 4 - var(--card-tab-h)); }
-
-.layer-5 { background: #444454; top: calc(var(--stack-stick) + var(--stack-step) * 5); }
-.layer-5 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 5 - var(--card-tab-h)); }
-
-.layer-6 { background: #4c4c5e; top: calc(var(--stack-stick) + var(--stack-step) * 6); }
-.layer-6 .layer-inner { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 6 - var(--card-tab-h)); }
+.layer-0 { background: #1c1c20; z-index: 10; --layer: 0; }
+.layer-1 { background: #24242c; z-index: 11; --layer: 1; }
+.layer-2 { background: #2c2c36; z-index: 12; --layer: 2; }
+.layer-3 { background: #343440; z-index: 13; --layer: 3; }
+.layer-4 { background: #3c3c4a; z-index: 14; --layer: 4; }
+.layer-5 { background: #444454; z-index: 15; --layer: 5; }
+.layer-6 { background: #4c4c5e; z-index: 16; --layer: 6; }
 
 .layer-head {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.65rem;
@@ -98,7 +87,7 @@ body {
 .layer h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; }
 .layer h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.35rem; }
 .tagline { font-family: var(--mono); font-size: 0.65rem; color: #6b6966; margin-bottom: 0.4rem; }
-.body { font-size: 0.9rem; color: #a8a6a1; }
+.layer-copy { font-size: 0.9rem; color: #a8a6a1; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0; }
 .chips span {
   font-family: var(--mono); font-size: 0.55rem; padding: 0.15rem 0.4rem;

@@ -2,90 +2,75 @@ import { chromium } from 'playwright';
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
-const BASE = process.env.BASE_URL || 'http://localhost:5176';
+const BASE = process.env.BASE_URL || 'http://localhost:5173';
 const OUT = '/tmp/levkin-stack-test';
 mkdirSync(OUT, { recursive: true });
 
 const pages = [
-  { name: 'stack', path: '/stack/' },
-  { name: 'stack-folder', path: '/stack-folder/' },
-  { name: 'stack-trace', path: '/stack-trace/' },
-  { name: 'stack-rack', path: '/stack-rack/' },
+  { name: 'stack', path: '/stack/', bodySel: '.layer-inner' },
+  { name: 'stack-folder', path: '/stack-folder/', bodySel: '.folder .body' },
+  { name: 'stack-trace', path: '/stack-trace/', bodySel: '.frame-body' },
+  { name: 'stack-rack', path: '/stack-rack/', bodySel: '.unit-body' },
 ];
 
 const scrollY = [0, 400, 800, 1200, 1800, 2400];
 
-async function analyze(page, label) {
-  return page.evaluate(() => {
-    const sections = [...document.querySelectorAll('.scroll-section')];
-    const bodies = [...document.querySelectorAll('.body, .layer-inner, .frame-body, .unit-body')];
-    const tabs = [...document.querySelectorAll('.tab, .frame-line, .unit-head')];
-    const sticky = [...document.querySelectorAll('.tab, .body, .layer-inner, .frame-line, .frame-body, .unit-head, .unit-body')];
-    const rects = (els) => els.map((el, i) => {
-      const r = el.getBoundingClientRect();
-      const cs = getComputedStyle(el);
-      return {
-        i,
-        tag: el.className?.slice?.(0, 40) || el.tagName,
-        top: Math.round(r.top),
-        bottom: Math.round(r.bottom),
-        height: Math.round(r.height),
-        position: cs.position,
-        zIndex: cs.zIndex,
-        visible: r.height > 0 && r.bottom > 0 && r.top < innerHeight,
-      };
+async function analyze(page, bodySel) {
+  const reveal = await page.evaluate(() => {
+    const s = getComputedStyle(document.documentElement);
+    return parseFloat(s.getPropertyValue('--stack-reveal')) ||
+      (48 + 44 * 6 + 32);
+  });
+
+  return page.evaluate(({ bodySel, reveal }) => {
+    const bodies = [...document.querySelectorAll(bodySel)];
+    const stacked = bodies.filter((b) => {
+      const r = b.getBoundingClientRect();
+      return Math.abs(r.top - reveal) < 35 && r.height > 80;
     });
-    const visibleBodies = rects(bodies).filter((b) => b.visible && b.height > 80);
-    const mount = document.querySelector('.mount, .stack-mount');
-    const mountH = mount ? Math.round(mount.getBoundingClientRect().height) : 0;
+    const visible = bodies.filter((b) => {
+      const r = b.getBoundingClientRect();
+      return r.height > 80 && r.bottom > 0 && r.top < innerHeight;
+    });
+    const el = document.elementFromPoint(innerWidth / 2, reveal + 100);
+    const panel = el?.closest('.folder, .layer, .frame, .unit');
+    const layer = panel?.closest('[data-layer]')?.dataset?.layer;
+    const title = panel?.querySelector('h1, h2, strong')?.textContent?.trim().slice(0, 50);
     return {
       scrollY: Math.round(window.scrollY),
-      pageH: Math.round(document.documentElement.scrollHeight),
-      viewport: innerHeight,
-      sections: sections.length,
-      visibleBodyCount: visibleBodies.length,
-      visibleBodies,
-      mountDocHeight: mountH,
-      firstSectionTop: sections[0] ? Math.round(sections[0].getBoundingClientRect().top) : null,
-      lastSectionBottom: sections.at(-1) ? Math.round(sections.at(-1).getBoundingClientRect().bottom) : null,
-      stickyPositions: rects(sticky.filter((el) => getComputedStyle(el).position === 'sticky')).slice(0, 14),
+      reveal: Math.round(reveal),
+      stackedCount: stacked.length,
+      visibleCount: visible.length,
+      topLayer: layer,
+      topTitle: title,
+      issues: [],
     };
-  });
+  }, { bodySel, reveal });
 }
 
 const browser = await chromium.launch({ headless: true });
 const report = [];
 
-for (const { name, path } of pages) {
+for (const { name, path, bodySel } of pages) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
-  const url = BASE + path;
-  await page.goto(url, { waitUntil: 'networkidle' });
+  await page.goto(BASE + path, { waitUntil: 'networkidle' });
   const shots = [];
   for (const y of scrollY) {
     await page.evaluate((sy) => window.scrollTo(0, sy), y);
-    await page.waitForTimeout(200);
-    const data = await analyze(page, name);
-    const file = join(OUT, `${name}-scroll-${y}.png`);
-    await page.screenshot({ path: file, fullPage: false });
-    shots.push({ y, file, ...data });
+    await page.waitForTimeout(250);
+    const data = await analyze(page, bodySel);
+    if (data.stackedCount < 2 && y > 200) data.issues.push('not stacking (need 2+ bodies at reveal line)');
+    if (data.visibleCount > 2 && y > 200) data.issues.push(`${data.visibleCount} bodies spread out, not covering`);
+    await page.screenshot({ path: join(OUT, `${name}-scroll-${y}.png`) });
+    shots.push({ y, ...data });
   }
-  report.push({ name, url, shots });
+  report.push({ name, shots });
   await page.close();
 }
 
 await browser.close();
-
-const summary = report.map((r) => {
-  const problems = r.shots.map((s) => {
-    const issues = [];
-    if (s.visibleBodyCount > 2) issues.push(`${s.visibleBodyCount} bodies visible (want ≤2)`);
-    if (s.scrollY === 0 && s.visibleBodyCount > 1) issues.push('top: multiple full bodies');
-    if (s.pageH > s.viewport * 8) issues.push(`page very tall: ${s.pageH}px`);
-    return { y: s.y, issues, visibleBodyCount: s.visibleBodyCount, pageH: s.pageH };
-  });
-  return { variant: r.name, url: r.url, scrollChecks: problems };
-});
-
-writeFileSync(join(OUT, 'report.json'), JSON.stringify({ report, summary }, null, 2));
-console.log(JSON.stringify(summary, null, 2));
-console.log('\nScreenshots:', OUT);
+writeFileSync(join(OUT, 'report.json'), JSON.stringify(report, null, 2));
+console.log(JSON.stringify(report.map((r) => ({
+  variant: r.name,
+  checks: r.shots.map((s) => ({ y: s.y, stacked: s.stackedCount, top: s.topTitle, issues: s.issues })),
+})), null, 2));
