@@ -1,11 +1,19 @@
 const MESSAGES = [
   {
     morse: '·−·−− · ·−·−− ·−· · ·−·−− −−− · ·−·−− ·−· · ·−·−− ·−−−',
-    text: 'Levkin builds production software for teams under pressure. Custom systems, automation, enterprise tooling.',
+    text: 'Levkin — Canadian software practice. Custom apps, automation (n8n, CI/CD, LLMs), CaseWare, SDET. Remote NA & EU. Taking new work.',
+  },
+  {
+    morse: '−−− ·−·−− · ·−·−− ·−· · ·−·−− ·−−− · ·−·−− ·−· · ·−·−− −−−',
+    text: 'Proof: 15+ years enterprise. CaseWare releases cut from 8 hours to under 2 minutes. Automation runs 24/7 — not demos.',
+  },
+  {
+    morse: '·−·−− · ·−·−− ·−· · ·−·−− −−− · ·−·−− ·−· · ·−·−− ·−−−',
+    text: 'Discover (15 min) → Proposal (fixed scope) → Ship (tested, documented) → Maintain (optional). auto.levkin.ca · caseware.levkin.ca · iliadobkin.com',
   },
   {
     morse: '−−− ·−·−− · ·−·−− ·−· · ·−·−− ·−−− · ·−·−− ·−· · ·−·−− −−− · ·−·−− ·−· · ·−·−− ·−−−',
-    text: 'Error handling required. Documentation required. Tests before live data. Scope creep rejected.',
+    text: 'Error handling required. Documentation required. Tests before live data. Pragmatism: 20-line script beats 200-node workflow when it fits.',
   },
 ];
 

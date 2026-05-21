@@ -135,10 +135,16 @@ main {
 
 .channels ul { list-style: none; }
 
+.line-desc {
+  font-size: 0.7rem;
+  color: var(--dim);
+  grid-column: 2;
+}
+
 .channels li {
   display: grid;
   grid-template-columns: 2.5rem 1fr auto;
-  gap: 0.5rem;
+  gap: 0.25rem 0.5rem;
   align-items: center;
   padding: 0.65rem 0;
   border-bottom: 1px solid rgba(212, 165, 116, 0.1);
@@ -155,11 +161,40 @@ main {
 
 .line-link:hover { text-decoration: underline; }
 
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(212, 165, 116, 0.15);
+  border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+}
+
+.metric {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+}
+
+.metric strong {
+  color: var(--amber);
+  font-weight: 700;
+}
+
 .principles {
   font-size: 0.85rem;
   color: var(--dim);
   margin-bottom: 2.5rem;
   line-height: 1.65;
+}
+
+.principles .clients {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  opacity: 0.8;
 }
 
 .send {
