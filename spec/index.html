@@ -9,12 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('levkin-spec-prefs') || '{}');
+        if (p.theme) document.documentElement.dataset.theme = p.theme;
+        if (p.fontScale) document.documentElement.style.setProperty('--font-scale', p.fontScale);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
   <link rel="stylesheet" href="./spec.css" />
 </head>
 <body>
-  <aside class="toc" aria-label="Table of contents">
+  <a class="skip-link" href="#main">Skip to specification</a>
+
+  <aside class="toc" aria-labelledby="toc-heading">
     <a href="/" class="back">← all options</a>
-    <nav>
+    <h2 id="toc-heading" class="toc-title">Contents</h2>
+    <nav aria-label="Specification sections">
       <a href="#abstract">Abstract</a>
       <a href="#scope">1. Scope</a>
       <a href="#services">2. Services</a>
@@ -23,164 +35,208 @@
       <a href="#subsidiaries">5. Subdomains</a>
       <a href="#contact">6. Contact</a>
     </nav>
+
+    <section class="prefs" aria-labelledby="prefs-heading">
+      <h2 id="prefs-heading" class="prefs-heading">Display</h2>
+      <fieldset class="theme-field">
+        <legend class="theme-legend">Theme</legend>
+        <div class="theme-options" role="radiogroup" aria-label="Color theme">
+          <label class="theme-option">
+            <input type="radio" name="theme" value="light" checked />
+            <span>Light</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="dim" />
+            <span>Dim</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="dark" />
+            <span>Dark</span>
+          </label>
+        </div>
+      </fieldset>
+      <div class="font-controls">
+        <span class="font-label" id="font-controls-label">Text size</span>
+        <div class="font-buttons" role="group" aria-labelledby="font-controls-label">
+          <button type="button" class="font-btn" data-action="decrease" aria-label="Decrease text size">A−</button>
+          <button type="button" class="font-btn" data-action="reset" aria-label="Reset text size to default">A</button>
+          <button type="button" class="font-btn" data-action="increase" aria-label="Increase text size">A+</button>
+        </div>
+        <span class="font-scale-readout" id="font-scale-readout" aria-live="polite">100%</span>
+      </div>
+    </section>
+
     <p class="meta">Levkin-Company-Spec<br />Version 1.0<br />May 2026</p>
   </aside>
 
-  <article class="rfc">
-    <header class="rfc-header">
-      <p class="category">Request for Comments</p>
-      <h1>Levkin Software Development Company</h1>
-      <table class="rfc-meta">
-        <tr><th>Status</th><td><span class="badge">ACTIVE</span></td></tr>
-        <tr><th>Entity</th><td>Levkin</td></tr>
-        <tr><th>Domain</th><td>levkin.ca</td></tr>
-        <tr><th>Updated</th><td>2026-05-20</td></tr>
-      </table>
-    </header>
+  <main id="main" class="main" tabindex="-1">
+    <article class="rfc">
+      <header class="rfc-header">
+        <p class="category">Request for Comments</p>
+        <h1>Levkin Software Development Company</h1>
+        <table class="rfc-meta">
+          <tbody>
+            <tr><th scope="row">Status</th><td><span class="badge">ACTIVE</span></td></tr>
+            <tr><th scope="row">Entity</th><td>Levkin</td></tr>
+            <tr><th scope="row">Domain</th><td>levkin.ca</td></tr>
+            <tr><th scope="row">Updated</th><td><time datetime="2026-05-20">2026-05-20</time></td></tr>
+          </tbody>
+        </table>
+      </header>
 
-    <section id="abstract">
-      <h2>Abstract</h2>
-      <p>This document describes <strong>Levkin</strong>, a Canadian software development practice specializing in production systems, business automation, and enterprise tooling. Remote across North American and European time zones. Levkin ships software that must work when nobody is watching — with error handling, documentation, and tests as non-optional requirements.</p>
-      <p>Quality engineering and SDET work are documented at <a href="https://iliadobkin.com">iliadobkin.com</a> — an interactive portfolio (Playwright-style test runner UI, career timeline, trace-driven debugging showcase).</p>
-      <p><span class="badge">AVAILABLE</span> Currently taking on new engagements.</p>
-    </section>
+      <section id="abstract" aria-labelledby="abstract-heading">
+        <h2 id="abstract-heading">Abstract</h2>
+        <p>This document describes <strong>Levkin</strong>, a Canadian software development practice specializing in production systems, business automation, and enterprise tooling. Remote across North American and European time zones. Levkin ships software that must work when nobody is watching — with error handling, documentation, and tests as non-optional requirements.</p>
+        <p>Quality engineering and SDET work are documented at <a href="https://iliadobkin.com" rel="noopener noreferrer">iliadobkin.com<span class="sr-only"> (external)</span></a> — an interactive portfolio (Playwright-style test runner UI, career timeline, trace-driven debugging showcase).</p>
+        <p><span class="badge">AVAILABLE</span> Currently taking on new engagements.</p>
+      </section>
 
-    <section id="scope">
-      <h2><span class="sec-num">1.</span> Scope</h2>
-      <p>Levkin operates as a boutique engineering practice, not a body shop. Engagements are scoped, shipped, and handed off with the expectation that the client (or their next hire) can maintain what was built.</p>
-      <pre class="code-block"><code>interface Engagement {
+      <section id="scope" aria-labelledby="scope-heading">
+        <h2 id="scope-heading"><span class="sec-num" aria-hidden="true">1.</span> Scope</h2>
+        <p>Levkin operates as a boutique engineering practice, not a body shop. Engagements are scoped, shipped, and handed off with the expectation that the client (or their next hire) can maintain what was built.</p>
+        <pre class="code-block" tabindex="0"><code>interface Engagement {
   discovery: "15min call, no obligation"; // cal.levkin.ca/ilia/consult
   delivery: "production-ready, documented";
   maintenance: "optional, not mandatory lock-in";
 }</code></pre>
-    </section>
+      </section>
 
-    <section id="services">
-      <h2><span class="sec-num">2.</span> Services</h2>
-      <p>The following endpoints represent primary service offerings. Each maps to a deployable capability.</p>
+      <section id="services" aria-labelledby="services-heading">
+        <h2 id="services-heading"><span class="sec-num" aria-hidden="true">2.</span> Services</h2>
+        <p>The following endpoints represent primary service offerings. Each maps to a deployable capability.</p>
 
-      <div class="endpoint">
-        <div class="endpoint-head">
-          <span class="method">BUILD</span>
-          <span class="path">/custom-software</span>
+        <article class="endpoint" aria-labelledby="ep-custom">
+          <div class="endpoint-head" id="ep-custom">
+            <span class="method" aria-hidden="true">BUILD</span>
+            <span class="path">/custom-software</span>
+          </div>
+          <p>Web applications, APIs, internal tools. Stack-agnostic; preference for boring, proven technology.</p>
+          <ul>
+            <li>TypeScript / Node · Python · C# / .NET</li>
+            <li>PostgreSQL · SQL Server · SQLite</li>
+            <li>React · Vue · server-rendered where appropriate</li>
+          </ul>
+        </article>
+
+        <article class="endpoint" aria-labelledby="ep-auto">
+          <div class="endpoint-head" id="ep-auto">
+            <span class="method" aria-hidden="true">BUILD</span>
+            <span class="path">/automation</span>
+            <span class="ext"><a href="https://auto.levkin.ca" rel="noopener noreferrer">auto.levkin.ca<span class="sr-only"> (external)</span></a></span>
+          </div>
+          <p>Production-ready automation — scripts, no-code workflows, CI/CD, webhooks, AI integrations. Runs while you sleep.</p>
+          <ul>
+            <li>n8n · Zapier · Make · GitHub Actions · Jenkins · Azure DevOps</li>
+            <li>Python · Node · Bash · macOS/iOS Shortcuts</li>
+            <li>OpenAI · Claude · custom LLM pipelines</li>
+          </ul>
+        </article>
+
+        <article class="endpoint" aria-labelledby="ep-caseware">
+          <div class="endpoint-head" id="ep-caseware">
+            <span class="method" aria-hidden="true">BUILD</span>
+            <span class="path">/caseware</span>
+            <span class="ext"><a href="https://caseware.levkin.ca" rel="noopener noreferrer">caseware.levkin.ca<span class="sr-only"> (external)</span></a></span>
+          </div>
+          <p>CaseWare &amp; CaseView features, client templates, release automation. 15+ years; teams at CaseWare International, MNP, JazzIt.</p>
+          <ul>
+            <li>C# · .NET · SQL Server · JavaScript automation</li>
+            <li>Template delivery · CI/CD · mentorship · modernization</li>
+          </ul>
+        </article>
+
+        <article class="endpoint" aria-labelledby="ep-qe">
+          <div class="endpoint-head" id="ep-qe">
+            <span class="method" aria-hidden="true">BUILD</span>
+            <span class="path">/quality-engineering</span>
+            <span class="ext"><a href="https://iliadobkin.com" rel="noopener noreferrer">iliadobkin.com<span class="sr-only"> (external)</span></a></span>
+          </div>
+          <p>Senior SDET services — test automation, CI/CD pipelines, trace-driven debugging, contract QA leadership.</p>
+          <ul>
+            <li>Portfolio: <a href="https://iliadobkin.com" rel="noopener noreferrer">iliadobkin.com<span class="sr-only"> (external)</span></a> — runnable career specs, trace viewer</li>
+            <li>Remote (ET) · Canadian · git.levkin.ca for source</li>
+            <li>Playwright / JS automation · enterprise CI (Jenkins, Azure DevOps, GitHub Actions)</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="proof" aria-labelledby="proof-heading">
+        <h2 id="proof-heading"><span class="sec-num" aria-hidden="true">3.</span> Documented Outcomes</h2>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <caption class="sr-only">Documented outcomes metrics</caption>
+            <thead>
+              <tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Context</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>release_time</code></td><td>8h → &lt;2min</td><td>CaseWare template pipeline rebuild</td></tr>
+              <tr><td><code>experience</code></td><td>15+ years</td><td>CaseWare, automation, enterprise CI/CD</td></tr>
+              <tr><td><code>automation_uptime</code></td><td>24/7</td><td>Pipelines monitored, not happy-path demos</td></tr>
+              <tr><td><code>engagement_model</code></td><td>Fixed scope</td><td>Quoted per project after discovery — no hourly surprises</td></tr>
+            </tbody>
+          </table>
         </div>
-        <p>Web applications, APIs, internal tools. Stack-agnostic; preference for boring, proven technology.</p>
-        <ul>
-          <li>TypeScript / Node · Python · C# / .NET</li>
-          <li>PostgreSQL · SQL Server · SQLite</li>
-          <li>React · Vue · server-rendered where appropriate</li>
-        </ul>
-      </div>
+        <p>Engagement flow: <strong>Discover</strong> (15 min) → <strong>Design</strong> (proposal) → <strong>Ship</strong> (tested, documented) → <strong>Maintain</strong> (optional).</p>
+      </section>
 
-      <div class="endpoint">
-        <div class="endpoint-head">
-          <span class="method">BUILD</span>
-          <span class="path">/automation</span>
-          <span class="ext"><a href="https://auto.levkin.ca">auto.levkin.ca</a></span>
+      <section id="properties" aria-labelledby="properties-heading">
+        <h2 id="properties-heading"><span class="sec-num" aria-hidden="true">4.</span> Required Properties</h2>
+        <p>All Levkin deliverables MUST satisfy the following constraints unless explicitly waived in writing.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <caption class="sr-only">Required deliverable properties</caption>
+            <thead>
+              <tr><th scope="col">Property</th><th scope="col">Requirement</th><th scope="col">Rationale</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>reliability</code></td><td>Retries, alerts, graceful degradation</td><td>Production ≠ demo</td></tr>
+              <tr><td><code>documentation</code></td><td>Runbook or README sufficient for handoff</td><td>Bus factor &gt; 1</td></tr>
+              <tr><td><code>testability</code></td><td>Automated tests before live data</td><td>Regressions are expensive</td></tr>
+              <tr><td><code>pragmatism</code></td><td>Smallest solution that solves the problem</td><td>20-line script &gt; 200-node workflow</td></tr>
+            </tbody>
+          </table>
         </div>
-        <p>Production-ready automation — scripts, no-code workflows, CI/CD, webhooks, AI integrations. Runs while you sleep.</p>
-        <ul>
-          <li>n8n · Zapier · Make · GitHub Actions · Jenkins · Azure DevOps</li>
-          <li>Python · Node · Bash · macOS/iOS Shortcuts</li>
-          <li>OpenAI · Claude · custom LLM pipelines</li>
-        </ul>
-      </div>
+      </section>
 
-      <div class="endpoint">
-        <div class="endpoint-head">
-          <span class="method">BUILD</span>
-          <span class="path">/caseware</span>
-          <span class="ext"><a href="https://caseware.levkin.ca">caseware.levkin.ca</a></span>
+      <section id="subsidiaries" aria-labelledby="subsidiaries-heading">
+        <h2 id="subsidiaries-heading"><span class="sec-num" aria-hidden="true">5.</span> Registered Subdomains</h2>
+        <div class="table-wrap">
+          <table class="spec-table subdomains">
+            <caption class="sr-only">Registered Levkin subdomains</caption>
+            <thead>
+              <tr><th scope="col">Host</th><th scope="col">Purpose</th><th scope="col">Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="https://auto.levkin.ca" rel="noopener noreferrer">auto.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Business automation</td><td><span class="badge">live</span></td></tr>
+              <tr><td><a href="https://caseware.levkin.ca" rel="noopener noreferrer">caseware.levkin.ca<span class="sr-only"> (external)</span></a></td><td>CaseWare consulting</td><td><span class="badge">live</span></td></tr>
+              <tr><td><a href="https://jobs.levkin.ca" rel="noopener noreferrer">jobs.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Job orchestration (internal)</td><td><span class="badge muted">auth</span></td></tr>
+              <tr><td><a href="https://git.levkin.ca" rel="noopener noreferrer">git.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Source control</td><td><span class="badge">live</span></td></tr>
+              <tr><td><a href="https://iliadobkin.com" rel="noopener noreferrer">iliadobkin.com<span class="sr-only"> (external)</span></a></td><td>SDET portfolio · quality engineering</td><td><span class="badge">live</span></td></tr>
+              <tr><td><a href="https://cal.levkin.ca/ilia/consult" rel="noopener noreferrer">cal.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Scheduling · 15 min consultation</td><td><span class="badge">live</span></td></tr>
+            </tbody>
+          </table>
         </div>
-        <p>CaseWare &amp; CaseView features, client templates, release automation. 15+ years; teams at CaseWare International, MNP, JazzIt.</p>
-        <ul>
-          <li>C# · .NET · SQL Server · JavaScript automation</li>
-          <li>Template delivery · CI/CD · mentorship · modernization</li>
-        </ul>
-      </div>
+      </section>
 
-      <div class="endpoint">
-        <div class="endpoint-head">
-          <span class="method">BUILD</span>
-          <span class="path">/quality-engineering</span>
-          <span class="ext"><a href="https://iliadobkin.com">iliadobkin.com</a></span>
+      <section id="contact" class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading"><span class="sec-num" aria-hidden="true">6.</span> Contact</h2>
+        <p>To initiate an engagement, send a <code>POST</code> to one of the following channels:</p>
+        <div class="contact-grid">
+          <a class="contact-card" href="https://cal.levkin.ca/ilia/consult" rel="noopener noreferrer">
+            <span class="method post" aria-hidden="true">POST</span>
+            <span class="contact-path">/consult</span>
+            <span class="desc">15-minute discovery call<span class="sr-only"> (opens cal.levkin.ca)</span></span>
+          </a>
+          <a class="contact-card" href="mailto:hello@levkine.ca?subject=Project%20enquiry">
+            <span class="method post" aria-hidden="true">POST</span>
+            <span class="contact-path">/email</span>
+            <span class="desc">hello@levkine.ca</span>
+          </a>
         </div>
-        <p>Senior SDET services — test automation, CI/CD pipelines, trace-driven debugging, contract QA leadership.</p>
-        <ul>
-          <li>Portfolio: <a href="https://iliadobkin.com">iliadobkin.com</a> — runnable career specs, trace viewer</li>
-          <li>Remote (ET) · Canadian · git.levkin.ca for source</li>
-          <li>Playwright / JS automation · enterprise CI (Jenkins, Azure DevOps, GitHub Actions)</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="proof">
-      <h2><span class="sec-num">3.</span> Documented Outcomes</h2>
-      <table class="spec-table">
-        <thead>
-          <tr><th>Metric</th><th>Value</th><th>Context</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>release_time</code></td><td>8h → &lt;2min</td><td>CaseWare template pipeline rebuild</td></tr>
-          <tr><td><code>experience</code></td><td>15+ years</td><td>CaseWare, automation, enterprise CI/CD</td></tr>
-          <tr><td><code>automation_uptime</code></td><td>24/7</td><td>Pipelines monitored, not happy-path demos</td></tr>
-          <tr><td><code>engagement_model</code></td><td>Fixed scope</td><td>Quoted per project after discovery — no hourly surprises</td></tr>
-        </tbody>
-      </table>
-      <p>Engagement flow: <strong>Discover</strong> (15 min) → <strong>Design</strong> (proposal) → <strong>Ship</strong> (tested, documented) → <strong>Maintain</strong> (optional).</p>
-    </section>
-
-    <section id="properties">
-      <h2><span class="sec-num">4.</span> Required Properties</h2>
-      <p>All Levkin deliverables MUST satisfy the following constraints unless explicitly waived in writing.</p>
-      <table class="spec-table">
-        <thead>
-          <tr><th>Property</th><th>Requirement</th><th>Rationale</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><code>reliability</code></td><td>Retries, alerts, graceful degradation</td><td>Production ≠ demo</td></tr>
-          <tr><td><code>documentation</code></td><td>Runbook or README sufficient for handoff</td><td>Bus factor &gt; 1</td></tr>
-          <tr><td><code>testability</code></td><td>Automated tests before live data</td><td>Regressions are expensive</td></tr>
-          <tr><td><code>pragmatism</code></td><td>Smallest solution that solves the problem</td><td>20-line script &gt; 200-node workflow</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="subsidiaries">
-      <h2><span class="sec-num">5.</span> Registered Subdomains</h2>
-      <table class="spec-table subdomains">
-        <thead>
-          <tr><th>Host</th><th>Purpose</th><th>Status</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="https://auto.levkin.ca">auto.levkin.ca</a></td><td>Business automation</td><td><span class="badge">live</span></td></tr>
-          <tr><td><a href="https://caseware.levkin.ca">caseware.levkin.ca</a></td><td>CaseWare consulting</td><td><span class="badge">live</span></td></tr>
-          <tr><td><a href="https://jobs.levkin.ca">jobs.levkin.ca</a></td><td>Job orchestration (internal)</td><td><span class="badge muted">auth</span></td></tr>
-          <tr><td><a href="https://git.levkin.ca">git.levkin.ca</a></td><td>Source control</td><td><span class="badge">live</span></td></tr>
-          <tr><td><a href="https://iliadobkin.com">iliadobkin.com</a></td><td>SDET portfolio · quality engineering</td><td><span class="badge">live</span></td></tr>
-          <tr><td><a href="https://cal.levkin.ca/ilia/consult">cal.levkin.ca</a></td><td>Scheduling · 15 min consultation</td><td><span class="badge">live</span></td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2><span class="sec-num">6.</span> Contact</h2>
-      <p>To initiate an engagement, send a <code>POST</code> to one of the following channels:</p>
-      <div class="contact-grid">
-        <a class="contact-card" href="https://cal.levkin.ca/ilia/consult">
-          <span class="method post">POST</span>
-          <span>/consult</span>
-          <span class="desc">15-minute discovery call</span>
-        </a>
-        <a class="contact-card" href="mailto:hello@levkine.ca?subject=Project%20enquiry">
-          <span class="method post">POST</span>
-          <span>/email</span>
-          <span class="desc">hello@levkine.ca</span>
-        </a>
-      </div>
-      <p class="copyright">© Levkin · Canadian software development</p>
-    </section>
-  </article>
+        <p class="copyright">© Levkin · Canadian software development</p>
+      </section>
+    </article>
+  </main>
 
   <script src="./spec.js" type="module"></script>
 </body>

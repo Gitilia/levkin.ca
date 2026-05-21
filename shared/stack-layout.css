@@ -1,12 +1,16 @@
-/* Sticky stack slots — import after stack-vars.css */
+/* Pull layers into one stack so sticky overlap works */
 .scroll-section {
   height: var(--stack-slot);
   position: relative;
 }
 
+.scroll-section + .scroll-section {
+  margin-top: calc(-1 * var(--stack-pull));
+}
+
 .scroll-section--final {
   height: var(--stack-slot-last);
-  min-height: 280px;
+  min-height: 260px;
 }
 
 .stack-stop,

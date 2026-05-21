@@ -27,26 +27,37 @@ body {
 }
 
 .frame {
-  position: sticky;
+  position: relative;
   margin: 0 0.5rem;
   border-left: 3px solid #3a3a44;
   background: #141418;
-  padding: 0.65rem 0 0.65rem 1rem;
-  min-height: calc(100vh - var(--stack-nav) - 5rem);
   box-shadow: 0 8px 0 #0a0a0c, 0 14px 28px rgba(0,0,0,0.45);
+}
+
+.frame-line {
+  position: sticky;
+  z-index: 60;
+  padding: 0.65rem 0 0.35rem 1rem;
+  background: #141418;
+}
+
+.frame-body {
+  position: sticky;
+  top: var(--stack-reveal);
+  padding: 0 0 2rem 1rem;
+  min-height: var(--stack-body-h);
+  z-index: 10;
+  background: #141418;
 }
 
 .frame-line {
   display: block;
   font-size: 0.66rem;
   color: #6b9b6b;
-  margin-bottom: 0.4rem;
-  background: none;
   border: none;
   font-family: inherit;
   cursor: pointer;
   text-align: left;
-  padding: 0;
   width: 100%;
 }
 
@@ -56,13 +67,16 @@ body {
 .frame-body p { color: #6b6966; font-size: 0.74rem; }
 .frame-body a { color: #8b9cb3; text-decoration: none; }
 
-.f0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); z-index: 10; border-color: #c4a574; }
-.f1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); z-index: 11; }
-.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 12; }
-.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 13; }
-.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 14; border-color: #6b8b9b; }
-.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 15; }
-.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 16; border-color: #7eb87a; }
+.f0 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.f0 { border-color: #c4a574; }
+.f1 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.f2 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
+.f3 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
+.f4 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
+.f4 { border-color: #6b8b9b; }
+.f5 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
+.f6 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
+.f6 { border-color: #7eb87a; }
 
 .foot {
   display: flex; justify-content: space-between;

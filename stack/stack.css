@@ -35,16 +35,26 @@ body {
 }
 
 .layer {
-  position: sticky;
+  position: relative;
   margin: 0;
   border-radius: 8px 8px 6px 6px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 36px rgba(0,0,0,0.5);
 }
 
+.layer-inner {
+  position: sticky;
+  top: var(--stack-reveal);
+  z-index: 10;
+}
+
 .layer-tab {
-  position: absolute;
-  top: -6px; left: 10px; right: 10px; height: 6px;
+  position: sticky;
+  z-index: 55;
+  left: 10px;
+  right: 10px;
+  height: 6px;
+  margin-bottom: -6px;
   border-radius: 5px 5px 0 0;
   background: inherit;
   filter: brightness(1.12);
@@ -53,17 +63,24 @@ body {
   pointer-events: none;
 }
 
-.layer-0 { z-index: 10; background: #1c1c20; top: calc(var(--stack-stick) + var(--stack-step) * 0); }
-.layer-1 { z-index: 11; background: #24242c; top: calc(var(--stack-stick) + var(--stack-step) * 1); }
-.layer-2 { z-index: 12; background: #2c2c36; top: calc(var(--stack-stick) + var(--stack-step) * 2); }
-.layer-3 { z-index: 13; background: #343440; top: calc(var(--stack-stick) + var(--stack-step) * 3); }
-.layer-4 { z-index: 14; background: #3c3c4a; top: calc(var(--stack-stick) + var(--stack-step) * 4); }
-.layer-5 { z-index: 15; background: #444454; top: calc(var(--stack-stick) + var(--stack-step) * 5); }
-.layer-6 { z-index: 16; background: #4c4c5e; top: calc(var(--stack-stick) + var(--stack-step) * 6); }
+.layer-0 { background: #1c1c20; }
+.layer-0 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.layer-1 { background: #24242c; }
+.layer-1 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.layer-2 { background: #2c2c36; }
+.layer-2 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
+.layer-3 { background: #343440; }
+.layer-3 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
+.layer-4 { background: #3c3c4a; }
+.layer-4 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
+.layer-5 { background: #444454; }
+.layer-5 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
+.layer-6 { background: #4c4c5e; }
+.layer-6 .layer-tab { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
 
 .layer-inner {
   padding: 1.2rem 1.35rem 2rem;
-  min-height: calc(100vh - var(--stack-nav) - 5rem);
+  min-height: var(--stack-body-h);
 }
 
 .layer-head {
