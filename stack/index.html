@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/stack-vars.css" />
   <link rel="stylesheet" href="./stack.css" />
 </head>
 <body>
@@ -20,7 +21,7 @@
 
   <main class="stack-mount">
     <div class="scroll-section" data-layer="0"><section class="layer layer-0"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L0</span><span class="layer-name">foundation</span></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="0">L0</button><span class="layer-name">foundation</span></header>
       <h1>Levkin</h1>
       <p class="tagline">Software · Canada · remote</p>
       <p class="body">Boutique engineering — production systems, automation, enterprise.</p>
@@ -29,37 +30,37 @@
     </div></section></div>
 
     <div class="scroll-section" data-layer="1"><section class="layer layer-1"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L1</span><span class="layer-name">application</span></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="1">L1</button><span class="layer-name">application</span></header>
       <h2>Custom software</h2>
       <p class="body">Web apps, APIs, internal tools — TS · Python · .NET</p>
     </div></section></div>
 
     <div class="scroll-section" data-layer="2"><section class="layer layer-2"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L2</span><span class="layer-name">automation</span><a href="https://auto.levkin.ca" class="layer-link">auto.levkin.ca ↗</a></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="2">L2</button><span class="layer-name">automation</span><a href="https://auto.levkin.ca" class="layer-link">auto.levkin.ca ↗</a></header>
       <h2>Automation</h2>
       <p class="body">n8n · Zapier · CI/CD · webhooks · LLMs</p>
     </div></section></div>
 
     <div class="scroll-section" data-layer="3"><section class="layer layer-3"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L3</span><span class="layer-name">enterprise</span><a href="https://caseware.levkin.ca" class="layer-link">caseware.levkin.ca ↗</a></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="3">L3</button><span class="layer-name">enterprise</span><a href="https://caseware.levkin.ca" class="layer-link">caseware.levkin.ca ↗</a></header>
       <h2>CaseWare &amp; CaseView</h2>
       <p class="body">15+ years · CaseWare Intl, MNP, JazzIt</p>
     </div></section></div>
 
     <div class="scroll-section" data-layer="4"><section class="layer layer-4"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L4</span><span class="layer-name">quality</span><a href="https://iliadobkin.com" class="layer-link">iliadobkin.com ↗</a></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="4">L4</button><span class="layer-name">quality</span><a href="https://iliadobkin.com" class="layer-link">iliadobkin.com ↗</a></header>
       <h2>Quality engineering</h2>
       <p class="body">Senior SDET · test automation · CI/CD · trace-driven QA</p>
     </div></section></div>
 
     <div class="scroll-section" data-layer="5"><section class="layer layer-5"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L5</span><span class="layer-name">operations</span><a href="https://jobs.levkin.ca" class="layer-link">jobs.levkin.ca ↗</a></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="5">L5</button><span class="layer-name">operations</span><a href="https://jobs.levkin.ca" class="layer-link">jobs.levkin.ca ↗</a></header>
       <h2>Job Ops</h2>
       <p class="body">Internal hiring orchestrator (auth required)</p>
     </div></section></div>
 
     <div class="scroll-section scroll-section--final" data-layer="6"><section class="layer layer-6"><div class="layer-tab" aria-hidden="true"></div><div class="layer-inner">
-      <header class="layer-head"><span class="layer-id">L6</span><span class="layer-name">interface</span></header>
+      <header class="layer-head"><button type="button" class="layer-id" data-goto="6">L6</button><span class="layer-name">interface</span></header>
       <h2>Engage</h2>
       <p class="body">Discover → Proposal → Ship → Maintain</p>
       <div class="contact-row">
@@ -73,7 +74,18 @@
   </main>
 
   <footer class="site-foot"><a href="https://git.levkin.ca">git.levkin.ca</a><span>levkin.ca</span></footer>
-  <div class="stack-ruler" aria-hidden="true"><span>L0</span><span>L1</span><span>L2</span><span>L3</span><span>L4</span><span>L5</span><span>L6</span></div>
-  <script src="./stack.js" type="module"></script>
+  <div class="stack-ruler" aria-label="Jump to layer">
+    <button type="button" data-goto="0" data-layer="0">L0</button>
+    <button type="button" data-goto="1" data-layer="1">L1</button>
+    <button type="button" data-goto="2" data-layer="2">L2</button>
+    <button type="button" data-goto="3" data-layer="3">L3</button>
+    <button type="button" data-goto="4" data-layer="4">L4</button>
+    <button type="button" data-goto="5" data-layer="5">L5</button>
+    <button type="button" data-goto="6" data-layer="6">L6</button>
+  </div>
+  <script type="module">
+    import { initStackScroll } from '../shared/stack-scroll.js';
+    initStackScroll();
+  </script>
 </body>
 </html>

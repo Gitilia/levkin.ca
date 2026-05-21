@@ -6,26 +6,28 @@
   <title>Levkin — Stack Rack</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/stack-vars.css" />
   <link rel="stylesheet" href="./rack.css" />
 </head>
 <body>
-  <nav class="nav"><a href="/">← options</a><a href="/stack-trace/">trace</a><span id="depth">U0</span></nav>
-
+  <nav class="nav"><a href="/">← options</a><a href="/stack-trace/">trace</a><a href="/stack-folder/">folder</a><span id="depth">U0</span></nav>
   <div class="rack-frame">
     <div class="rack-label">LEV-RACK-01</div>
     <main class="mount">
-      <div class="scroll-section" data-layer="0"><article class="unit u0"><header class="unit-head"><span class="led on"></span><span class="uid">U0</span><span class="svc">foundation</span></header><div class="unit-body"><strong>Levkin</strong><p>Software dev · CA · 15+ yrs · new work open</p></div></article></div>
-      <div class="scroll-section" data-layer="1"><article class="unit u1"><header class="unit-head"><span class="led on"></span><span class="uid">U1</span><span class="svc">application</span></header><div class="unit-body"><strong>custom_software</strong><p>TS · Python · .NET</p></div></article></div>
-      <div class="scroll-section" data-layer="2"><article class="unit u2"><header class="unit-head"><span class="led on"></span><span class="uid">U2</span><span class="svc">automation</span><a href="https://auto.levkin.ca">auto↗</a></header><div class="unit-body"><strong>pipeline_cluster</strong><p>n8n · CI/CD · LLM hooks</p></div></article></div>
-      <div class="scroll-section" data-layer="3"><article class="unit u3"><header class="unit-head"><span class="led on"></span><span class="uid">U3</span><span class="svc">enterprise</span><a href="https://caseware.levkin.ca">caseware↗</a></header><div class="unit-body"><strong>caseware_module</strong><p>MNP · JazzIt · 8h→2m</p></div></article></div>
-      <div class="scroll-section" data-layer="4"><article class="unit u4"><header class="unit-head"><span class="led blink"></span><span class="uid">U4</span><span class="svc">quality</span><a href="https://iliadobkin.com">iliadobkin↗</a></header><div class="unit-body"><strong>sdet_suite</strong><p>traces · Playwright · CI</p></div></article></div>
-      <div class="scroll-section" data-layer="5"><article class="unit u5"><header class="unit-head"><span class="led"></span><span class="uid">U5</span><span class="svc">ops</span><a href="https://jobs.levkin.ca">jobs↗</a></header><div class="unit-body"><strong>job_ops</strong><p>auth · internal</p></div></article></div>
-      <div class="scroll-section scroll-section--final" data-layer="6"><article class="unit u6"><header class="unit-head"><span class="led on"></span><span class="uid">U6</span><span class="svc">interface</span></header><div class="unit-body"><strong>engage()</strong><p><a href="https://cal.levkin.ca/ilia/consult">book_consult</a> · <a href="mailto:hello@levkine.ca">mail</a></p></div></article></div>
+      <div class="scroll-section" data-layer="0"><article class="unit u0"><header class="unit-head"><button type="button" class="jump" data-goto="0"><span class="led on"></span><span class="uid">U0</span><span class="svc">foundation</span></button></header><div class="unit-body"><strong>Levkin</strong><p>Software dev · CA · 15+ yrs</p></div></article></div>
+      <div class="scroll-section" data-layer="1"><article class="unit u1"><header class="unit-head"><button type="button" class="jump" data-goto="1"><span class="led on"></span><span class="uid">U1</span><span class="svc">application</span></button></header><div class="unit-body"><strong>custom_software</strong><p>TS · Python · .NET</p></div></article></div>
+      <div class="scroll-section" data-layer="2"><article class="unit u2"><header class="unit-head"><button type="button" class="jump" data-goto="2"><span class="led on"></span><span class="uid">U2</span><span class="svc">automation</span></button><a class="ext" href="https://auto.levkin.ca">auto↗</a></header><div class="unit-body"><strong>pipeline</strong><p>n8n · CI/CD</p></div></article></div>
+      <div class="scroll-section" data-layer="3"><article class="unit u3"><header class="unit-head"><button type="button" class="jump" data-goto="3"><span class="led on"></span><span class="uid">U3</span><span class="svc">enterprise</span></button><a class="ext" href="https://caseware.levkin.ca">case↗</a></header><div class="unit-body"><strong>caseware</strong><p>MNP · JazzIt</p></div></article></div>
+      <div class="scroll-section" data-layer="4"><article class="unit u4"><header class="unit-head"><button type="button" class="jump" data-goto="4"><span class="led blink"></span><span class="uid">U4</span><span class="svc">quality</span></button><a class="ext" href="https://iliadobkin.com">sdet↗</a></header><div class="unit-body"><strong>sdet_suite</strong><p>iliadobkin.com</p></div></article></div>
+      <div class="scroll-section" data-layer="5"><article class="unit u5"><header class="unit-head"><button type="button" class="jump" data-goto="5"><span class="led"></span><span class="uid">U5</span><span class="svc">ops</span></button><a class="ext" href="https://jobs.levkin.ca">jobs↗</a></header><div class="unit-body"><strong>job_ops</strong><p>auth</p></div></article></div>
+      <div class="scroll-section scroll-section--final" data-layer="6"><article class="unit u6"><header class="unit-head"><button type="button" class="jump" data-goto="6"><span class="led on"></span><span class="uid">U6</span><span class="svc">interface</span></button></header><div class="unit-body"><strong>engage()</strong><p><a href="https://cal.levkin.ca/ilia/consult">book</a> · <a href="mailto:hello@levkine.ca">mail</a></p></div></article></div>
       <div class="stop"></div>
     </main>
   </div>
-
   <footer class="foot"><span>// rack EOT</span><a href="https://git.levkin.ca">git.levkin.ca</a></footer>
-  <script src="./rack.js" type="module"></script>
+  <script type="module">
+    import { initStackScroll } from '../shared/stack-scroll.js';
+    initStackScroll({ depthPrefix: 'U' });
+  </script>
 </body>
 </html>

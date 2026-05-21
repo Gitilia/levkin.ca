@@ -1,0 +1,8 @@
+/* Import in each stack variant: @import '../shared/stack-vars.css'; */
+:root {
+  --stack-nav: 2.5rem;
+  --stack-stick: 0.5rem;
+  --stack-step: 1.75rem;
+  --stack-tick: 13vh;
+  --stack-overlap: 11.5vh;
+}
