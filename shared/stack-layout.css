@@ -1,19 +1,6 @@
-.scroll-section {
-  height: var(--stack-slot);
-  position: relative;
-}
-
-.scroll-section + .scroll-section {
-  margin-top: calc(-1 * var(--stack-pull));
-}
-
-.scroll-section--final {
-  height: var(--stack-slot-last);
-  min-height: 280px;
-}
-
+/* Spacer after L6 so scroll can stop */
 .stack-stop,
 .stop {
-  height: 2rem;
-  margin-bottom: 3rem;
+  height: 1px;
+  margin-bottom: 4rem;
 }

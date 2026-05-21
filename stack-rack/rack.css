@@ -38,7 +38,8 @@ body {
 
 .unit {
   position: sticky;
-  margin: 0;
+  min-height: var(--stack-card-min);
+  margin-bottom: 1.25rem;
   border: 1px solid #2a3448;
   background: #161a22;
   border-radius: 2px;
@@ -51,7 +52,7 @@ body {
   padding: 0.4rem 0.65rem;
   background: #1a2030;
   border-bottom: 1px solid #2a3448;
-  z-index: 60;
+  z-index: 80;
 }
 
 .unit-head button.jump {
@@ -72,30 +73,29 @@ body {
 .unit-head a.ext { color: #60a5fa; text-decoration: none; font-size: 0.58rem; }
 
 .unit-body {
-  padding: 0.6rem 0.7rem 2rem;
-  min-height: var(--stack-body-h);
+  padding: 0.6rem 0.7rem 1.5rem;
   background: #161a22;
 }
 
-.u0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); z-index: 10; }
-.u0 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.u0 { top: var(--stack-stick); z-index: 1; }
+.u0 .unit-head { top: var(--stack-stick); }
 
-.u1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); z-index: 11; }
-.u1 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.u1 { top: calc(var(--stack-stick) + var(--stack-step)); z-index: 2; }
+.u1 .unit-head { top: calc(var(--stack-stick) + var(--stack-step)); }
 
-.u2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 12; }
+.u2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 3; }
 .u2 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
 
-.u3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 13; }
+.u3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 4; }
 .u3 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
 
-.u4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 14; }
+.u4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 5; }
 .u4 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
 
-.u5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 15; }
+.u5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 6; }
 .u5 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
 
-.u6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 16; }
+.u6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 7; margin-bottom: 4rem; }
 .u6 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
 
 .unit-body strong { color: #e5e7eb; display: block; margin-bottom: 0.2rem; }

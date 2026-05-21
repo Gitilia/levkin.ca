@@ -28,7 +28,8 @@ body {
 
 .frame {
   position: sticky;
-  margin: 0 0.5rem;
+  min-height: var(--stack-card-min);
+  margin: 0 0.5rem 1.25rem;
   border-left: 3px solid #3a3a44;
   background: #141418;
   box-shadow: 0 8px 0 #0a0a0c, 0 14px 28px rgba(0,0,0,0.45);
@@ -46,36 +47,35 @@ body {
   width: 100%;
   padding: 0.65rem 0 0.35rem 1rem;
   background: #141418;
-  z-index: 60;
+  z-index: 80;
 }
 
 .frame-line:hover { color: #9fdf9f; text-decoration: underline; }
 
 .frame-body {
-  padding: 0 0 2rem 1rem;
-  min-height: var(--stack-body-h);
+  padding: 0 0 1.5rem 1rem;
   background: #141418;
 }
 
-.f0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); z-index: 10; border-color: #c4a574; }
-.f0 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.f0 { top: var(--stack-stick); z-index: 1; border-color: #c4a574; }
+.f0 .frame-line { top: var(--stack-stick); }
 
-.f1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); z-index: 11; }
-.f1 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.f1 { top: calc(var(--stack-stick) + var(--stack-step)); z-index: 2; }
+.f1 .frame-line { top: calc(var(--stack-stick) + var(--stack-step)); }
 
-.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 12; }
+.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 3; }
 .f2 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
 
-.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 13; }
+.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 4; }
 .f3 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
 
-.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 14; border-color: #6b8b9b; }
+.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 5; border-color: #6b8b9b; }
 .f4 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
 
-.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 15; }
+.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 6; }
 .f5 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
 
-.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 16; border-color: #7eb87a; }
+.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 7; border-color: #7eb87a; margin-bottom: 4rem; }
 .f6 .frame-line { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
 
 .frame-body strong { color: #e8e6e3; font-weight: 500; display: block; margin-bottom: 0.2rem; }

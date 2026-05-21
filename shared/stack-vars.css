@@ -1,12 +1,7 @@
-/* Sticky card stack — enough scroll per layer for cover effect */
+/* Original working sticky stack (cfca7aa) */
 :root {
   --stack-nav: 2.5rem;
-  --stack-stick: 3rem;
+  --stack-stick: 3.5rem;
   --stack-step: 2.75rem;
-  --stack-slot: 100vh;
-  --stack-slot-last: 55vh;
-  /* ~70vh scroll per layer before the next card slides over */
-  --stack-scroll-step: 70vh;
-  --stack-pull: calc(var(--stack-slot) - var(--stack-scroll-step));
-  --stack-body-h: calc(100dvh - var(--stack-stick) - var(--stack-step) * 6 - 3rem);
+  --stack-card-min: 52vh;
 }
