@@ -19,9 +19,22 @@ function fontIndexFromScale(scale) {
   return idx === -1 ? DEFAULT_FONT_INDEX : idx;
 }
 
+const THEME_COLORS = {
+  light: '#f6f3ee',
+  dim: '#c9c3b8',
+  dark: '#10100f',
+};
+
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : theme === 'dim' ? 'light' : 'light';
+  document.documentElement.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
+  let meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    document.head.appendChild(meta);
+  }
+  meta.content = THEME_COLORS[theme] || THEME_COLORS.light;
   const input = document.querySelector(`input[name="theme"][value="${theme}"]`);
   if (input) input.checked = true;
 }

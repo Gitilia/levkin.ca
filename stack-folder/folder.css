@@ -60,14 +60,14 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
   padding: var(--stack-nav) 1rem 0;
 }
 
+/* Whole folder sticks; tab staggered via folder top; bodies align to reveal */
 .folder {
-  position: relative;
+  position: sticky;
   width: 100%;
+  z-index: 10;
 }
 
-/* Tabs stick in staggered rail — always above folder bodies */
 .tab {
-  position: sticky;
   display: block;
   width: fit-content;
   max-width: calc(100% - 1rem);
@@ -83,31 +83,47 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
   text-align: left;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
   transition: filter 0.15s;
-  z-index: 60;
 }
 
 .tab:hover { filter: brightness(1.06); }
 
-/* Bodies share one stick line; active layer z-index set in JS */
 .body {
-  position: sticky;
-  top: var(--stack-reveal);
   background: #e8e2d4;
   border: 1px solid #c4b8a8;
+  border-top: none;
   border-radius: 0 10px 10px 10px;
   padding: 1.25rem 1.4rem 2rem;
   min-height: var(--stack-body-h);
   box-shadow: 0 10px 32px rgba(0,0,0,0.25);
-  z-index: 10;
 }
 
-.f0 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 0); margin-left: calc(var(--tab-offset) * 0); background: #c9a86c; color: #2a2824; }
-.f1 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 1); margin-left: calc(var(--tab-offset) * 1); background: #a8c4d4; color: #1a2830; }
-.f2 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 2); margin-left: calc(var(--tab-offset) * 2); background: #b8d4a8; color: #1a2818; }
-.f3 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 3); margin-left: calc(var(--tab-offset) * 3); background: #d4b8c4; color: #2a1820; }
-.f4 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 4); margin-left: calc(var(--tab-offset) * 4); background: #d4c8a8; color: #2a2418; }
-.f5 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 5); margin-left: calc(var(--tab-offset) * 5); background: #c4c4c4; color: #2a2a2a; }
-.f6 .tab { top: calc(var(--stack-stick) + var(--stack-step) * 6); margin-left: calc(var(--tab-offset) * 6); background: #2a4a6b; color: #e8e2d4; }
+.f0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.f0 .tab { margin-left: calc(var(--tab-offset) * 0); background: #c9a86c; color: #2a2824; }
+.f0 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-tab-h)); }
+
+.f1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.f1 .tab { margin-left: calc(var(--tab-offset) * 1); background: #a8c4d4; color: #1a2830; }
+.f1 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 1 - var(--stack-tab-h)); }
+
+.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
+.f2 .tab { margin-left: calc(var(--tab-offset) * 2); background: #b8d4a8; color: #1a2818; }
+.f2 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 2 - var(--stack-tab-h)); }
+
+.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
+.f3 .tab { margin-left: calc(var(--tab-offset) * 3); background: #d4b8c4; color: #2a1820; }
+.f3 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 3 - var(--stack-tab-h)); }
+
+.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
+.f4 .tab { margin-left: calc(var(--tab-offset) * 4); background: #d4c8a8; color: #2a2418; }
+.f4 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 4 - var(--stack-tab-h)); }
+
+.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
+.f5 .tab { margin-left: calc(var(--tab-offset) * 5); background: #c4c4c4; color: #2a2a2a; }
+.f5 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 5 - var(--stack-tab-h)); }
+
+.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
+.f6 .tab { margin-left: calc(var(--tab-offset) * 6); background: #2a4a6b; color: #e8e2d4; }
+.f6 .body { margin-top: calc(var(--stack-reveal) - var(--stack-stick) - var(--stack-step) * 6 - var(--stack-tab-h)); }
 
 .body h1 { font-size: 1.65rem; margin-bottom: 0.35rem; }
 .body h2 { font-size: 1.25rem; margin-bottom: 0.4rem; }

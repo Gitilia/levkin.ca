@@ -5,7 +5,7 @@ export function initStackScroll(options = {}) {
     depthEl = document.getElementById('depth'),
     depthPrefix = 'L',
     tabSelector = '[data-goto], .jump',
-    bodySelector = '.body, .layer-inner, .frame-body, .unit-body',
+    panelSelector = '.folder, .layer, .frame, .unit',
   } = options;
 
   const sections = document.querySelectorAll(sectionSelector);
@@ -29,9 +29,11 @@ export function initStackScroll(options = {}) {
 
     sections.forEach((sec) => {
       const layer = Number(sec.dataset.layer);
-      const body = sec.querySelector(bodySelector);
-      if (!body) return;
-      body.style.zIndex = layer === active ? 100 : 10 + layer;
+      const isActive = layer === active;
+      sec.classList.toggle('is-active', isActive);
+      const panel = sec.querySelector(panelSelector);
+      if (!panel) return;
+      panel.style.zIndex = isActive ? 100 : 10 + layer;
     });
   }
 
