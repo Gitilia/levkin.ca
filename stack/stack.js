@@ -13,7 +13,7 @@ function updateDepth() {
     }
   });
 
-  depthEl.textContent = `depth: L${active}`;
+  depthEl.textContent = `L${active}`;
 
   rulerSpans.forEach((span, i) => {
     span.classList.toggle('active', i === active);
