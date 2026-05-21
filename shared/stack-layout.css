@@ -1,0 +1,16 @@
+/* Sticky stack slots — import after stack-vars.css */
+.scroll-section {
+  height: var(--stack-slot);
+  position: relative;
+}
+
+.scroll-section--final {
+  height: var(--stack-slot-last);
+  min-height: 280px;
+}
+
+.stack-stop,
+.stop {
+  height: 2rem;
+  margin-bottom: 3rem;
+}

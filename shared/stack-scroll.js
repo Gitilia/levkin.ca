@@ -32,9 +32,8 @@ export function initStackScroll(options = {}) {
       const layer = tab.dataset.goto;
       const target = document.querySelector(`${sectionSelector}[data-layer="${layer}"]`);
       if (!target) return;
-      const navH = 56;
-      const y = target.getBoundingClientRect().top + window.scrollY - navH;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      const y = target.offsetTop - 48;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
     });
   });
 

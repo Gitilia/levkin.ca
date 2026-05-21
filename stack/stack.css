@@ -1,4 +1,5 @@
 @import '../shared/stack-vars.css';
+@import '../shared/stack-layout.css';
 
 :root {
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -33,13 +34,9 @@ body {
   padding: var(--stack-nav) 1rem 0;
 }
 
-.scroll-section { height: var(--stack-tick); position: relative; }
-.scroll-section--final { height: 12vh; min-height: 220px; }
-.stack-stop { height: 1px; margin-bottom: 4rem; }
-
 .layer {
   position: sticky;
-  margin: 0 0 calc(-1 * var(--stack-overlap)) 0;
+  margin: 0;
   border-radius: 8px 8px 6px 6px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 36px rgba(0,0,0,0.5);
@@ -47,24 +44,27 @@ body {
 
 .layer-tab {
   position: absolute;
-  top: -7px; left: 8px; right: 8px; height: 7px;
+  top: -6px; left: 10px; right: 10px; height: 6px;
   border-radius: 5px 5px 0 0;
   background: inherit;
-  filter: brightness(1.15);
+  filter: brightness(1.12);
   border: 1px solid rgba(255,255,255,0.07);
   border-bottom: none;
   pointer-events: none;
 }
 
-.layer-0 { z-index: 1; background: #1c1c20; top: calc(var(--stack-nav) + var(--stack-stick)); }
-.layer-1 { z-index: 2; background: #24242c; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step)); }
-.layer-2 { z-index: 3; background: #2c2c36; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 2); }
-.layer-3 { z-index: 4; background: #343440; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 3); }
-.layer-4 { z-index: 5; background: #3c3c4a; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 4); }
-.layer-5 { z-index: 6; background: #444454; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 5); }
-.layer-6 { z-index: 7; background: #4c4c5e; top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 6); margin-bottom: 0; }
+.layer-0 { z-index: 10; background: #1c1c20; top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+.layer-1 { z-index: 11; background: #24242c; top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+.layer-2 { z-index: 12; background: #2c2c36; top: calc(var(--stack-stick) + var(--stack-step) * 2); }
+.layer-3 { z-index: 13; background: #343440; top: calc(var(--stack-stick) + var(--stack-step) * 3); }
+.layer-4 { z-index: 14; background: #3c3c4a; top: calc(var(--stack-stick) + var(--stack-step) * 4); }
+.layer-5 { z-index: 15; background: #444454; top: calc(var(--stack-stick) + var(--stack-step) * 5); }
+.layer-6 { z-index: 16; background: #4c4c5e; top: calc(var(--stack-stick) + var(--stack-step) * 6); }
 
-.layer-inner { padding: 1.2rem 1.35rem 1.3rem; min-height: 200px; }
+.layer-inner {
+  padding: 1.2rem 1.35rem 2rem;
+  min-height: calc(100vh - var(--stack-nav) - 5rem);
+}
 
 .layer-head {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.65rem;
@@ -78,7 +78,6 @@ body {
   font-family: var(--mono); font-size: 0.6rem; cursor: pointer; padding: 0;
 }
 .layer-id:hover { text-decoration: underline; }
-
 .layer-name { color: #6b6966; text-transform: uppercase; letter-spacing: 0.1em; }
 .layer-link { margin-left: auto; color: #8b9cb3; text-decoration: none; font-size: 0.58rem; }
 .layer h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; }
@@ -110,12 +109,9 @@ body {
   font-family: var(--mono); font-size: 0.48rem; color: #2a2a30;
 }
 .stack-ruler button {
-  background: none; border: none; color: inherit; font: inherit; cursor: pointer; padding: 0.1rem 0;
-  text-align: right;
+  background: none; border: none; color: inherit; font: inherit; cursor: pointer; padding: 0.1rem 0; text-align: right;
 }
 .stack-ruler button:hover,
 .stack-ruler button.active { color: #c4a574; }
 
-@media (max-width: 700px) {
-  .variants { display: none; }
-}
+@media (max-width: 700px) { .variants { display: none; } }

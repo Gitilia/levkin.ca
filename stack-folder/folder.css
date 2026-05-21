@@ -1,7 +1,8 @@
 @import '../shared/stack-vars.css';
+@import '../shared/stack-layout.css';
 
 :root {
-  --tab-offset: 2.4rem;
+  --tab-offset: 2.35rem;
   --mono: 'IBM Plex Mono', monospace;
   --sans: 'Instrument Sans', system-ui, sans-serif;
 }
@@ -21,17 +22,16 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
 .nav a:hover { color: #d4a574; }
 .depth { margin-left: auto; color: #d4a574; font-weight: 600; }
 
-/* Quick-jump rail */
 .tab-rail {
   position: fixed;
-  top: 2.5rem;
-  right: max(0.5rem, calc(50% - 360px));
-  z-index: 350;
+  top: 2.75rem;
+  right: max(0.5rem, calc(50% - 340px));
+  z-index: 500;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.35rem;
-  background: rgba(42,40,36,0.9);
+  background: rgba(42,40,36,0.92);
   border: 1px solid #4a4844;
   border-radius: 6px;
 }
@@ -57,30 +57,21 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
 .mount {
   width: min(640px, 100%);
   margin: 0 auto;
-  padding: calc(var(--stack-nav) + 0.25rem) 1rem 0;
+  padding: var(--stack-nav) 1rem 0;
 }
 
-.scroll-section {
-  height: var(--stack-tick);
-  position: relative;
-}
-
-.scroll-section--final {
-  height: 12vh;
-  min-height: 220px;
-}
-
-.stack-stop { height: 1px; margin-bottom: 4rem; }
-
+/* One sticky unit: tab + body move together */
 .folder {
   position: sticky;
   width: 100%;
-  margin-bottom: calc(-1 * var(--stack-overlap));
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
-/* Tab: sticky with layer, offset left so all labels readable when stacked */
+/* Tab on top — NOT sticky alone; offset per layer */
 .tab {
-  position: sticky;
+  position: relative;
   display: block;
   width: fit-content;
   max-width: calc(100% - 1rem);
@@ -89,53 +80,48 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 0.4rem 1rem 0.35rem;
-  border: 1px solid rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.12);
   border-bottom: none;
   border-radius: 8px 8px 0 0;
   cursor: pointer;
   text-align: left;
-  z-index: 50;
-  box-shadow: 0 -3px 10px rgba(0,0,0,0.15);
-  transition: filter 0.15s, transform 0.15s;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.12);
+  transition: filter 0.15s;
 }
 
-.tab:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.tab:hover { filter: brightness(1.06); }
 
 .body {
   background: #e8e2d4;
   border: 1px solid #c4b8a8;
+  border-top: none;
   border-radius: 0 10px 10px 10px;
-  padding: 1.25rem 1.4rem 1.35rem;
-  min-height: 200px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
-  position: relative;
-  z-index: 1;
+  padding: 1.25rem 1.4rem 2rem;
+  min-height: calc(100vh - var(--stack-nav) - 5rem);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.2);
 }
 
-.f0 { top: calc(var(--stack-nav) + var(--stack-stick)); z-index: 1; }
-.f0 .tab { top: calc(var(--stack-nav) + var(--stack-stick)); margin-left: calc(var(--tab-offset) * 0); z-index: 170; background: #c9a86c; color: #2a2824; }
+/* Sticky top steps — tabs stay visible above lower folders */
+.f0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); z-index: 10; }
+.f0 .tab { margin-left: calc(var(--tab-offset) * 0); background: #c9a86c; color: #2a2824; }
 
-.f1 { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step)); z-index: 2; }
-.f1 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step)); margin-left: calc(var(--tab-offset) * 1); z-index: 171; background: #a8c4d4; color: #1a2830; }
+.f1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); z-index: 11; }
+.f1 .tab { margin-left: calc(var(--tab-offset) * 1); background: #a8c4d4; color: #1a2830; }
 
-.f2 { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 2); z-index: 3; }
-.f2 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 2); margin-left: calc(var(--tab-offset) * 2); z-index: 172; background: #b8d4a8; color: #1a2818; }
+.f2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 12; }
+.f2 .tab { margin-left: calc(var(--tab-offset) * 2); background: #b8d4a8; color: #1a2818; }
 
-.f3 { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 3); z-index: 4; }
-.f3 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 3); margin-left: calc(var(--tab-offset) * 3); z-index: 173; background: #d4b8c4; color: #2a1820; }
+.f3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 13; }
+.f3 .tab { margin-left: calc(var(--tab-offset) * 3); background: #d4b8c4; color: #2a1820; }
 
-.f4 { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 4); z-index: 5; }
-.f4 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 4); margin-left: calc(var(--tab-offset) * 4); z-index: 174; background: #d4c8a8; color: #2a2418; }
+.f4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 14; }
+.f4 .tab { margin-left: calc(var(--tab-offset) * 4); background: #d4c8a8; color: #2a2418; }
 
-.f5 { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 5); z-index: 6; }
-.f5 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 5); margin-left: calc(var(--tab-offset) * 5); z-index: 175; background: #c4c4c4; color: #2a2a2a; }
+.f5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 15; }
+.f5 .tab { margin-left: calc(var(--tab-offset) * 5); background: #c4c4c4; color: #2a2a2a; }
 
-.f6 {
-  top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 6);
-  z-index: 7;
-  margin-bottom: 0;
-}
-.f6 .tab { top: calc(var(--stack-nav) + var(--stack-stick) + var(--stack-step) * 6); margin-left: calc(var(--tab-offset) * 6); z-index: 176; background: #2a4a6b; color: #e8e2d4; }
+.f6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 16; }
+.f6 .tab { margin-left: calc(var(--tab-offset) * 6); background: #2a4a6b; color: #e8e2d4; }
 
 .body h1 { font-size: 1.65rem; margin-bottom: 0.35rem; }
 .body h2 { font-size: 1.25rem; margin-bottom: 0.4rem; }
@@ -144,7 +130,8 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
 .avail { font-family: var(--mono); font-size: 0.68rem; color: #3d6b3d; margin-top: 0.5rem; }
 .btn {
   font-family: var(--mono); font-size: 0.7rem; padding: 0.45rem 0.75rem;
-  background: #2a4a6b; color: #fff; text-decoration: none; border-radius: 4px; margin-right: 0.4rem; display: inline-block; margin-top: 0.35rem;
+  background: #2a4a6b; color: #fff; text-decoration: none; border-radius: 4px;
+  margin-right: 0.4rem; display: inline-block; margin-top: 0.35rem;
 }
 .btn.ghost { background: transparent; color: #2a4a6b; border: 1px solid #2a4a6b; }
 
@@ -157,6 +144,7 @@ body { font-family: var(--sans); background: #2a2824; color: #1a1814; }
 
 @media (max-width: 720px) {
   .tab-rail { display: none; }
-  :root { --tab-offset: 1.5rem; --stack-tick: 12vh; --stack-overlap: 10.5vh; }
+  :root { --tab-offset: 1.4rem; --stack-step: 2.25rem; }
+  .f5 .tab { margin-left: calc(var(--tab-offset) * 4); }
   .f6 .tab { margin-left: calc(var(--tab-offset) * 3); }
 }

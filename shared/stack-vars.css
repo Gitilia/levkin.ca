@@ -1,8 +1,8 @@
-/* Import in each stack variant: @import '../shared/stack-vars.css'; */
+/* Shared stack scroll — one viewport per layer */
 :root {
   --stack-nav: 2.5rem;
-  --stack-stick: 0.5rem;
-  --stack-step: 1.75rem;
-  --stack-tick: 13vh;
-  --stack-overlap: 11.5vh;
+  --stack-stick: 3rem;
+  --stack-step: 2.75rem;
+  --stack-slot: 100vh;
+  --stack-slot-last: 55vh;
 }
