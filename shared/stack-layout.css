@@ -1,4 +1,3 @@
-/* Overlapping scroll slots — each layer covers the one below via z-index */
 .scroll-section {
   height: var(--stack-slot);
   position: relative;
@@ -10,26 +9,11 @@
 
 .scroll-section--final {
   height: var(--stack-slot-last);
-  min-height: 260px;
+  min-height: 280px;
 }
 
 .stack-stop,
 .stop {
   height: 2rem;
   margin-bottom: 3rem;
-}
-
-/* Body visible only when card is stuck on the stack — next card covers previous */
-.scroll-section:not(.is-stuck) .body,
-.scroll-section:not(.is-stuck) .layer-inner,
-.scroll-section:not(.is-stuck) .frame-body,
-.scroll-section:not(.is-stuck) .unit-body {
-  visibility: hidden;
-  min-height: 0;
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  border: none;
-  box-shadow: none;
-  overflow: hidden;
 }

@@ -38,7 +38,6 @@ body {
 
 .unit {
   position: sticky;
-  top: var(--stack-reveal);
   margin: 0;
   border: 1px solid #2a3448;
   background: #161a22;
@@ -47,16 +46,12 @@ body {
 }
 
 .unit-head {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: calc(100% + var(--stack-step) * var(--layer, 0));
+  position: sticky;
   display: flex; align-items: center; gap: 0.5rem;
   padding: 0.4rem 0.65rem;
   background: #1a2030;
-  border: 1px solid #2a3448;
-  border-bottom: none;
-  border-radius: 2px 2px 0 0;
+  border-bottom: 1px solid #2a3448;
+  z-index: 60;
 }
 
 .unit-head button.jump {
@@ -82,13 +77,26 @@ body {
   background: #161a22;
 }
 
-.u0 { z-index: 10; --layer: 0; }
-.u1 { z-index: 11; --layer: 1; }
-.u2 { z-index: 12; --layer: 2; }
-.u3 { z-index: 13; --layer: 3; }
-.u4 { z-index: 14; --layer: 4; }
-.u5 { z-index: 15; --layer: 5; }
-.u6 { z-index: 16; --layer: 6; }
+.u0 { top: calc(var(--stack-stick) + var(--stack-step) * 0); z-index: 10; }
+.u0 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 0); }
+
+.u1 { top: calc(var(--stack-stick) + var(--stack-step) * 1); z-index: 11; }
+.u1 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 1); }
+
+.u2 { top: calc(var(--stack-stick) + var(--stack-step) * 2); z-index: 12; }
+.u2 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 2); }
+
+.u3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 13; }
+.u3 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 3); }
+
+.u4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 14; }
+.u4 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 4); }
+
+.u5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 15; }
+.u5 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 5); }
+
+.u6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 16; }
+.u6 .unit-head { top: calc(var(--stack-stick) + var(--stack-step) * 6); }
 
 .unit-body strong { color: #e5e7eb; display: block; margin-bottom: 0.2rem; }
 .unit-body p { color: #6b7280; font-size: 0.7rem; }
