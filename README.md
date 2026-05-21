@@ -15,10 +15,10 @@ Design concepts for the Levkin software development company homepage.
 
 | Variant | Path | Metaphor |
 |---------|------|----------|
-| **Cards** | `/stack/` | Dark sticky cards with stack lips |
-| **Folder** | `/stack-folder/` | Manila folders, side tabs |
-| **Paper** | `/stack-paper/` | Cream document pile |
+| **Cards** | `/stack/` | Dark overlapping sticky cards |
+| **Folder** | `/stack-folder/` | Manila folders, top tabs stay visible |
 | **Trace** | `/stack-trace/` | Call-stack / devtools frames |
+| **Rack** | `/stack-rack/` | Server rack 1U units with status LEDs |
 
 Open `/` to compare all.
 

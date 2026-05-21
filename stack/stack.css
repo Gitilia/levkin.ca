@@ -3,9 +3,9 @@
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --sans: 'Instrument Sans', system-ui, sans-serif;
   --nav-h: 2.5rem;
-  --stick: 1.15rem;
-  --step: 1.25rem;
-  --scroll-unit: 58vh;
+  --step: 2rem;
+  --scroll-tick: 28vh;
+  --overlap: 24vh;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,53 +44,51 @@ body {
   padding: var(--nav-h) 1rem 0;
 }
 
-/* Each section = one scroll “tick”; sticky card stacks inside */
 .scroll-section {
-  height: var(--scroll-unit);
+  height: var(--scroll-tick);
   position: relative;
 }
 
 .scroll-section--final {
-  height: calc(var(--scroll-unit) * 0.55);
-  min-height: 280px;
+  height: 18vh;
+  min-height: 200px;
 }
 
-.stack-stop {
-  height: 1px;
-  margin-bottom: 4rem;
-}
+.stack-stop { height: 1px; margin-bottom: 3rem; }
 
 .layer {
   position: sticky;
-  top: calc(var(--nav-h) + var(--stick));
-  margin: 0 0.5rem;
-  border-radius: 6px 6px 4px 4px;
+  margin: 0 0.35rem calc(-1 * var(--overlap)) 0.35rem;
+  border-radius: 8px 8px 6px 6px;
   border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.45);
 }
 
-/* Visible stack lip — previous layers peek through */
 .layer-tab {
   position: absolute;
-  top: -5px;
-  left: 12px;
-  right: 12px;
-  height: 5px;
-  border-radius: 4px 4px 0 0;
+  top: -6px;
+  left: 10px;
+  right: 10px;
+  height: 6px;
+  border-radius: 5px 5px 0 0;
   background: inherit;
-  filter: brightness(1.15);
-  border: 1px solid rgba(255,255,255,0.06);
+  filter: brightness(1.12);
+  border: 1px solid rgba(255,255,255,0.07);
   border-bottom: none;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
 }
 
-.layer-0 { z-index: 1; background: #1c1c20; top: calc(var(--nav-h) + var(--stick)); }
-.layer-1 { z-index: 2; background: #24242c; top: calc(var(--nav-h) + var(--stick) + var(--step)); }
-.layer-2 { z-index: 3; background: #2c2c36; top: calc(var(--nav-h) + var(--stick) + var(--step) * 2); }
-.layer-3 { z-index: 4; background: #343440; top: calc(var(--nav-h) + var(--stick) + var(--step) * 3); }
-.layer-4 { z-index: 5; background: #3c3c4a; top: calc(var(--nav-h) + var(--stick) + var(--step) * 4); }
-.layer-5 { z-index: 6; background: #444454; top: calc(var(--nav-h) + var(--stick) + var(--step) * 5); }
-.layer-6 { z-index: 7; background: #4c4c5e; top: calc(var(--nav-h) + var(--stick) + var(--step) * 6); }
+.layer-0 { z-index: 1; background: #1c1c20; top: calc(var(--nav-h) + 0.5rem); }
+.layer-1 { z-index: 2; background: #24242c; top: calc(var(--nav-h) + 0.5rem + var(--step)); }
+.layer-2 { z-index: 3; background: #2c2c36; top: calc(var(--nav-h) + 0.5rem + var(--step) * 2); }
+.layer-3 { z-index: 4; background: #343440; top: calc(var(--nav-h) + 0.5rem + var(--step) * 3); }
+.layer-4 { z-index: 5; background: #3c3c4a; top: calc(var(--nav-h) + 0.5rem + var(--step) * 4); }
+.layer-5 { z-index: 6; background: #444454; top: calc(var(--nav-h) + 0.5rem + var(--step) * 5); }
+.layer-6 {
+  z-index: 7;
+  background: #4c4c5e;
+  top: calc(var(--nav-h) + 0.5rem + var(--step) * 6);
+  margin-bottom: 0;
+}
 
 .layer-inner { padding: 1.1rem 1.25rem 1.2rem; }
 .layer-head {
@@ -132,7 +130,8 @@ body {
   font-family: var(--mono); font-size: 0.48rem; color: #2a2a30; pointer-events: none;
 }
 .stack-ruler span.active { color: #c4a574; }
+
 @media (max-width: 700px) {
   .stack-ruler, .variants { display: none; }
-  :root { --scroll-unit: 52vh; --step: 1rem; }
+  :root { --scroll-tick: 26vh; --overlap: 22vh; --step: 1.65rem; }
 }
