@@ -1,23 +1,16 @@
-const layers = document.querySelectorAll('.layer');
+const sections = document.querySelectorAll('.scroll-section');
 const depthEl = document.getElementById('depth');
 const rulerSpans = document.querySelectorAll('.stack-ruler span');
 
 function updateDepth() {
-  const mid = window.innerHeight * 0.45;
+  const mid = window.innerHeight * 0.42;
   let active = 0;
-
-  layers.forEach((layer) => {
-    const rect = layer.getBoundingClientRect();
-    if (rect.top <= mid && rect.bottom > mid) {
-      active = Number(layer.dataset.layer);
-    }
+  sections.forEach((sec) => {
+    const r = sec.getBoundingClientRect();
+    if (r.top <= mid && r.bottom > mid) active = Number(sec.dataset.layer);
   });
-
   depthEl.textContent = `L${active}`;
-
-  rulerSpans.forEach((span, i) => {
-    span.classList.toggle('active', i === active);
-  });
+  rulerSpans.forEach((s, i) => s.classList.toggle('active', i === active));
 }
 
 window.addEventListener('scroll', updateDepth, { passive: true });

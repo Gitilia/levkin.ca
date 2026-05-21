@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levkin — Stack Trace</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./trace.css" />
+</head>
+<body>
+  <nav class="nav"><a href="/">← options</a><a href="/stack/">cards</a><span id="depth">#0</span></nav>
+  <main class="mount">
+    <div class="scroll-section" data-layer="0"><article class="frame f0"><code>at Levkin.foundation (levkin.ca:0)</code><div class="frame-body"><strong>Levkin</strong><p>Canadian software practice · 15+ yrs · remote</p></div></article></div>
+    <div class="scroll-section" data-layer="1"><article class="frame f1"><code>at Levkin.application (levkin.ca:1)</code><div class="frame-body"><strong>custom_software()</strong><p>TS · Python · .NET · APIs</p></div></article></div>
+    <div class="scroll-section" data-layer="2"><article class="frame f2"><code>at Levkin.automation (auto.levkin.ca:2)</code><div class="frame-body"><strong>automation_pipeline()</strong><p>n8n · CI/CD · LLMs</p></div></article></div>
+    <div class="scroll-section" data-layer="3"><article class="frame f3"><code>at Levkin.caseware (caseware.levkin.ca:3)</code><div class="frame-body"><strong>enterprise_module()</strong><p>CaseWare · MNP · JazzIt</p></div></article></div>
+    <div class="scroll-section" data-layer="4"><article class="frame f4"><code>at Levkin.quality (iliadobkin.com:4)</code><div class="frame-body"><strong>sdet_suite()</strong><p><a href="https://iliadobkin.com">iliadobkin.com</a> — traces · Playwright</p></div></article></div>
+    <div class="scroll-section" data-layer="5"><article class="frame f5"><code>at Levkin.operations (jobs.levkin.ca:5)</code><div class="frame-body"><strong>job_ops()</strong><p>internal · auth required</p></div></article></div>
+    <div class="scroll-section scroll-section--final" data-layer="6"><article class="frame f6"><code>at Levkin.engage (interface:6)</code><div class="frame-body"><strong>main()</strong><p><a href="https://cal.levkin.ca/ilia/consult">book_consult()</a> · <a href="mailto:hello@levkine.ca">send_mail()</a></p></div></article></div>
+    <div class="stop"></div>
+  </main>
+  <footer class="foot"><span>// end of stack</span><a href="https://git.levkin.ca">git.levkin.ca</a></footer>
+  <script src="./trace.js" type="module"></script>
+</body>
+</html>

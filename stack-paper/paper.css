@@ -1,0 +1,46 @@
+:root {
+  --nav: 2.5rem; --stick: 0.85rem; --step: 0.95rem; --unit: 54vh;
+  --desk: #3d3832; --paper: #f6f3eb; --ink: #1a1814;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Literata', Georgia, serif; background: var(--desk); color: var(--ink); }
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; gap: 1rem; padding: 0.5rem 1rem;
+  font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+  background: rgba(61,56,50,0.92); color: #c4b8a8;
+}
+.nav a { color: #9a9288; text-decoration: none; }
+#depth { margin-left: auto; color: #8b7355; font-weight: 600; }
+.mount { max-width: 480px; margin: 0 auto; padding: var(--nav) 1.25rem 0; }
+.scroll-section { height: var(--unit); }
+.scroll-section--final { height: calc(var(--unit) * 0.48); min-height: 220px; }
+.stop { height: 1px; margin-bottom: 3rem; }
+.sheet {
+  position: sticky;
+  background: var(--paper);
+  border: 1px solid #d4cfc4;
+  padding: 0;
+  box-shadow: 2px 3px 0 #e0dcd2, 4px 6px 0 #d8d4c8, 0 16px 32px rgba(0,0,0,0.2);
+}
+.edge {
+  display: block;
+  height: 6px;
+  background: linear-gradient(180deg, #ebe6dc, #f6f3eb);
+  border-bottom: 1px solid #e0dcd2;
+}
+.inner { padding: 1.15rem 1.35rem 1.25rem; }
+.inner h1 { font-size: 1.85rem; font-weight: 600; }
+.inner h2 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.3rem; }
+.sub { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: #6a6458; margin-bottom: 0.5rem; }
+.inner p { font-size: 0.9rem; color: #4a4844; line-height: 1.55; }
+.inner a { color: #2a4a6b; }
+.s0 { top: calc(var(--nav) + var(--stick)); z-index: 1; transform: rotate(-0.4deg); margin-left: 0; }
+.s1 { top: calc(var(--nav) + var(--stick) + var(--step)); z-index: 2; transform: rotate(0.3deg); margin-left: 6px; }
+.s2 { top: calc(var(--nav) + var(--stick) + var(--step)*2); z-index: 3; transform: rotate(-0.2deg); margin-left: 12px; }
+.s3 { top: calc(var(--nav) + var(--stick) + var(--step)*3); z-index: 4; transform: rotate(0.5deg); margin-left: 8px; }
+.s4 { top: calc(var(--nav) + var(--stick) + var(--step)*4); z-index: 5; transform: rotate(-0.3deg); margin-left: 14px; }
+.s5 { top: calc(var(--nav) + var(--stick) + var(--step)*5); z-index: 6; transform: rotate(0.2deg); margin-left: 10px; }
+.s6 { top: calc(var(--nav) + var(--stick) + var(--step)*6); z-index: 7; transform: rotate(0deg); margin-left: 4px; }
+.foot { text-align: center; padding: 0 1rem 2.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: #7a7468; }
+.foot a { color: #7a7468; }

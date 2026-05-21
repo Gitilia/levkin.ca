@@ -157,16 +157,43 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer code { font-family: 'DM Mono', monospace; font-size: 0.75rem; }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2rem 0 1rem;
+    }
+    .grid-stacks { margin-bottom: 0; }
+    .preview--folder {
+      background: #e8e2d4;
+      color: #2a2824;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      border-left: 12px solid #c9a86c;
+    }
+    .preview--paper {
+      background: #3d3832;
+      font-size: 2rem;
+    }
+    .preview--trace {
+      background: #0d0d0f;
+      color: #6b9b6b;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <p class="eyebrow">levkin.ca · round 3</p>
-      <h1>Five directions.</h1>
-      <p class="lead">Enriched from auto, caseware, iliadobkin, and jobs — plus Stack: scroll the layers. Company-first throughout.</p>
+      <h1>Eight directions.</h1>
+      <p class="lead">Five brand concepts + four stack variants (L0–L6, stops on time). Spec updated with iliadobkin.com.</p>
     </header>
 
+    <p class="section-label">Brand</p>
     <div class="grid">
       <a class="card" href="/spec/">
         <div class="preview preview--spec">GET /company → 200</div>
@@ -204,18 +231,42 @@
         </div>
       </a>
 
+    </div>
+
+    <p class="section-label">Stack variants (scroll test)</p>
+    <div class="grid grid-stacks">
       <a class="card" href="/stack/">
         <div class="preview preview--stack">
-          <span class="card-layer"></span>
-          <span class="card-layer"></span>
-          <span class="card-layer"></span>
-          <span class="card-layer"></span>
-          <span class="card-layer"></span>
+          <span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span>
         </div>
         <div class="card-body">
-          <h2>Stack</h2>
-          <p>Sticky card stack L0–L4. Scroll peels layers back — tight, architectural, no bloat.</p>
-          <span class="tag">layers · scroll · architectural</span>
+          <h2>Stack · Cards</h2>
+          <p>L0–L6 sticky cards with stack lips. Scroll stops at L6.</p>
+          <span class="tag">default · dark · technical</span>
+        </div>
+      </a>
+      <a class="card" href="/stack-folder/">
+        <div class="preview preview--folder">L0│tab</div>
+        <div class="card-body">
+          <h2>Stack · Folder</h2>
+          <p>Manila folders — colored side tabs, vertical labels.</p>
+          <span class="tag">folder · tabs · office</span>
+        </div>
+      </a>
+      <a class="card" href="/stack-paper/">
+        <div class="preview preview--paper">📄</div>
+        <div class="card-body">
+          <h2>Stack · Paper</h2>
+          <p>Offset document pile — cream sheets, slight rotation.</p>
+          <span class="tag">paper · desk · serif</span>
+        </div>
+      </a>
+      <a class="card" href="/stack-trace/">
+        <div class="preview preview--trace">at Levkin.*</div>
+        <div class="card-body">
+          <h2>Stack · Trace</h2>
+          <p>Call-stack frames — iliadobkin.com as quality frame.</p>
+          <span class="tag">trace · devtools · mono</span>
         </div>
       </a>
     </div>

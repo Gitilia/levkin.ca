@@ -1,16 +1,26 @@
 # levkin.ca
 
-Five design concepts for the Levkin software development company homepage.
+Design concepts for the Levkin software development company homepage.
+
+### Brand directions
 
 | Option | Path | Vibe |
 |--------|------|------|
-| **Spec** | `/spec/` | RFC documentation, endpoints, required properties |
-| **Slab** | `/slab/` | Brutalist poster, massive typography |
-| **Relay** | `/relay/` | Telegraph, signal chain, decoded messages |
-| **Vault** | `/vault/` | Institutional trust, enterprise gravitas |
-| **Stack** | `/stack/` | Sticky scroll layers L0–L6, services as a card stack |
+| **Spec** | `/spec/` | RFC documentation, endpoints, iliadobkin.com |
+| **Slab** | `/slab/` | Brutalist poster |
+| **Relay** | `/relay/` | Telegraph, decoded messages |
+| **Vault** | `/vault/` | Institutional trust |
 
-Open `/` to compare all five.
+### Stack variants (L0–L6, scroll stops at interface)
+
+| Variant | Path | Metaphor |
+|---------|------|----------|
+| **Cards** | `/stack/` | Dark sticky cards with stack lips |
+| **Folder** | `/stack-folder/` | Manila folders, side tabs |
+| **Paper** | `/stack-paper/` | Cream document pile |
+| **Trace** | `/stack-trace/` | Call-stack / devtools frames |
+
+Open `/` to compare all.
 
 ## Develop
 
