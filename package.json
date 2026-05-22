@@ -8,8 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "capture-previews": "node scripts/capture-previews.mjs",
-    "test:folder": "node scripts/test-stack-folder.mjs",
-    "test:stack-scroll": "node scripts/test-stack-scroll.mjs"
+    "test:folder": "node scripts/test-stack-folder.mjs"
   },
   "devDependencies": {
     "playwright": "^1.60.0",

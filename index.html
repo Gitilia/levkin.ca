@@ -24,7 +24,7 @@
       min-height: 100vh;
       line-height: 1.5;
     }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
     header { margin-bottom: 3rem; }
     .eyebrow {
       font-family: 'DM Mono', monospace;
@@ -44,7 +44,7 @@
     .grid {
       display: grid;
       gap: 1.25rem;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
     a.card {
       display: block;
@@ -72,22 +72,6 @@
       font-family: 'DM Mono', monospace;
       letter-spacing: 0.06em;
     }
-    .preview--stack {
-      background: #0e0e10;
-      flex-direction: column;
-      gap: 4px;
-      padding: 1.5rem;
-    }
-    .preview--stack .card-layer {
-      width: 70%;
-      height: 12px;
-      border-radius: 3px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: linear-gradient(90deg, #2a2a32, #3a3a46);
-    }
-    .preview--stack .card-layer:nth-child(1) { width: 55%; opacity: 0.5; }
-    .preview--stack .card-layer:nth-child(2) { width: 62%; opacity: 0.7; }
-    .preview--stack .card-layer:nth-child(3) { width: 75%; background: #4a4a58; }
     .preview--folder {
       background: #e8e2d4;
       color: #2a2824;
@@ -121,8 +105,8 @@
   <div class="wrap">
     <header>
       <p class="eyebrow">levkin.ca</p>
-      <h1>Three directions.</h1>
-      <p class="lead">Spec for the company story. Cards and Folder for the L0–L6 scroll stack — click a layer to bring it to the front.</p>
+      <h1>Two directions.</h1>
+      <p class="lead">Spec for the company story. Folder for the L0–L7 scroll stack with site previews.</p>
     </header>
 
     <div class="grid">
@@ -135,29 +119,18 @@
         </div>
       </a>
 
-      <a class="card" href="/stack/">
-        <div class="preview preview--stack">
-          <span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span>
-        </div>
-        <div class="card-body">
-          <h2>Cards</h2>
-          <p>Dark sticky stack. Scroll or click L0–L6 to focus a layer.</p>
-          <span class="tag">stack · scroll</span>
-        </div>
-      </a>
-
       <a class="card" href="/stack-folder/">
-        <div class="preview preview--folder">L0│ L1│ L2│</div>
+        <div class="preview preview--folder">L0 · L1 · L2 · … L7</div>
         <div class="card-body">
           <h2>Folder</h2>
-          <p>Spec as a filing cabinet — manila tabs, clause sections, pull a file forward.</p>
-          <span class="tag">folder · spec</span>
+          <p>Manila tabs, sticky stack, previews of related sites.</p>
+          <span class="tag">folder · scroll</span>
         </div>
       </a>
     </div>
 
     <footer>
-      <p><a href="https://git.levkin.ca">git.levkin.ca</a> · <code>cd ~/Documents/code/levkin.ca && npm run dev</code></p>
+      <p><a href="https://git.levkin.ca">git.levkin.ca</a> · <code>npm run dev</code></p>
     </footer>
   </div>
 </body>

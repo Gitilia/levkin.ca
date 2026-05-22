@@ -7,7 +7,6 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         spec: resolve(__dirname, 'spec/index.html'),
-        stack: resolve(__dirname, 'stack/index.html'),
         stackFolder: resolve(__dirname, 'stack-folder/index.html'),
       },
     },

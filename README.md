@@ -1,79 +1,64 @@
 # levkin.ca
 
-Design concepts for the Levkin software development company homepage.
+Homepage design concepts for Levkin Inc.
 
-| Option | Path | Vibe |
-|--------|------|------|
-| **Spec** | `/spec/` | RFC documentation, endpoints, iliadobkin.com |
-| **Cards** | `/stack/` | Dark overlapping sticky cards — click a layer to bring it forward |
-| **Folder** | `/stack-folder/` | Manila folders, staggered tabs (L0–L7), site previews |
+| Page | Path | Description |
+|------|------|-------------|
+| **Spec** | `/spec/` | Company story as RFC-style documentation |
+| **Folder** | `/stack-folder/` | Manila folders L0–L7, sticky tab stack, site previews |
 
-Open `/` to compare all three.
+Open `/` to pick a direction.
 
 ## Develop
 
 ```bash
-cd ~/Documents/code/levkin.ca
 npm install
 npm run dev
 ```
 
-Vite serves the multi-page app (default `http://localhost:5173`). If that port is busy, pass another: `npx vite --port 5175`.
+Vite default: `http://localhost:5173`
 
 | Page | URL |
 |------|-----|
-| Compare | `/` |
+| Home | `/` |
 | Spec | `/spec/` |
-| Cards | `/stack/` |
 | Folders | `/stack-folder/` |
 
 ## Build
 
 ```bash
 npm run build
-# output in dist/
+# dist/
 ```
 
-## Folder site (`/stack-folder/`)
+## Folder stack (`/stack-folder/`)
 
-Eight manila folders (L0–L7) with labeled tabs. Scroll stacks earlier tabs on a shared rail; L7 rises into the row last. Scroll depth is capped when all tabs align (`is-folded`).
+Eight layers with labeled tabs. Scroll pins earlier tabs on a shared rail; L7 joins last. Scroll stops when all tabs align.
 
-- **L0** — Company + Cal embed  
-- **L1** — Scope + spec preview  
-- **L2** — Services  
-- **L3–L5** — Automation, CaseWare, QA previews  
-- **L6** — Git repos preview  
-- **L7** — Terms + Cal embed  
-
-Modules: `shared/stack-scroll.js` (scroll/fold), `folder-rail.js` (side rail), `folder-cal.js` (Cal.com embeds).
+- `shared/stack-scroll.js` — scroll depth, fold state, layer jump
+- `stack-folder/folder-rail.js` — side rail
+- `stack-folder/folder-cal.js` — Cal.com embeds
 
 ### Preview screenshots
 
-Each linked folder shows a screenshot; refresh captures with dev server running:
-
 ```bash
-npm run dev   # separate terminal
+npm run dev          # separate terminal
 npm run capture-previews
 ```
 
-Writes PNGs to `stack-folder/previews/`.
+Writes PNGs used in `stack-folder/previews/` (spec, auto, caseware, iliadobkin, git-repos, cal dark/light).
 
-### Tests (Playwright)
-
-Requires dev server on the URL you pass:
+### Test
 
 ```bash
 npm run dev
 STACK_URL=http://localhost:5173/stack-folder/ npm run test:folder
-STACK_URL=http://localhost:5173/stack-folder/ npm run test:stack-scroll
 ```
-
-`test:folder` checks tab alignment at max scroll and L7 jump. `test:stack-scroll` covers scroll/blur behavior on the card stack.
 
 ## Related sites
 
-- [auto.levkin.ca](https://auto.levkin.ca) — automation
-- [caseware.levkin.ca](https://caseware.levkin.ca) — CaseWare consulting
-- [jobs.levkin.ca](https://jobs.levkin.ca) — job orchestration
-- [git.levkin.ca](https://git.levkin.ca) — source control
-- [iliadobkin.com](https://iliadobkin.com) — SDET portfolio · quality engineering
+- [auto.levkin.ca](https://auto.levkin.ca)
+- [caseware.levkin.ca](https://caseware.levkin.ca)
+- [git.levkin.ca](https://git.levkin.ca)
+- [cal.levkin.ca](https://cal.levkin.ca/ilia/consult)
+- [iliadobkin.com](https://iliadobkin.com)

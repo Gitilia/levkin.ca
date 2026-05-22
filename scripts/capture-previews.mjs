@@ -13,7 +13,6 @@ mkdirSync(out, { recursive: true });
 
 const shots = [
   ['spec', `${base}/spec/`],
-  ['stack', `${base}/stack/`],
   ['auto', 'https://auto.levkin.ca'],
   ['caseware', 'https://caseware.levkin.ca'],
   ['iliadobkin', 'https://iliadobkin.com'],
