@@ -1,7 +1,10 @@
-/* Original working sticky stack (cfca7aa) */
+/* Sticky stack — one viewport of scroll per layer until L6 is on top */
 :root {
   --stack-nav: 2.5rem;
-  --stack-stick: 3.5rem;
-  --stack-step: 2.75rem;
-  --stack-card-min: 52vh;
+  --stack-stick: 3rem;
+  --stack-tab-h: 1.72rem;
+  --stack-step: 1.75rem;
+  --stack-gap: 0.35rem;
+  /* ~one folder body of scroll between layers (not a full viewport each) */
+  --stack-scroll-slot: 1.5rem;
 }

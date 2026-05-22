@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Levkin — Stack Folder</title>
+  <title>Levkin — Company Files</title>
+  <meta name="description" content="Levkin Inc. — company specification, filed by section." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./folder.css" />
 </head>
 <body>
-  <nav class="nav">
-    <a href="/">← options</a>
-    <a href="/stack/">cards</a>
-    <a href="/stack-trace/">trace</a>
-    <a href="/stack-rack/">rack</a>
-    <span class="depth" id="depth">L0</span>
-  </nav>
+  <header class="site-header desk-footer">
+    Levkin Inc. · production software, automation, and handoff-ready systems ·
+    <a href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer">book discovery call</a>
+  </header>
 
-  <div class="tab-rail" aria-label="Jump to layer">
+  <div class="tab-rail" id="tab-rail" aria-label="Layers L0–L7">
     <button type="button" class="rail-tab active" data-goto="0" data-layer="0">L0</button>
     <button type="button" class="rail-tab" data-goto="1" data-layer="1">L1</button>
     <button type="button" class="rail-tab" data-goto="2" data-layer="2">L2</button>
@@ -25,74 +25,161 @@
     <button type="button" class="rail-tab" data-goto="4" data-layer="4">L4</button>
     <button type="button" class="rail-tab" data-goto="5" data-layer="5">L5</button>
     <button type="button" class="rail-tab" data-goto="6" data-layer="6">L6</button>
+    <button type="button" class="rail-tab" data-goto="7" data-layer="7">L7</button>
   </div>
 
   <main class="mount">
     <article class="folder f0" data-layer="0" id="layer-0">
-      <button type="button" class="tab" data-goto="0">L0 · foundation</button>
-      <div class="body">
-        <h1>Levkin</h1>
-        <p>Software development · Canada · remote</p>
-        <p class="avail">Taking new engagements · 15+ yrs · 8h→2m</p>
+      <button type="button" class="tab" data-goto="0"><span class="tab-code">L0</span><span class="tab-label"> · Company</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <p class="file-id">LK-SPEC-1.0 · Cover sheet</p>
+          <h1>Levkin Software Development Company</h1>
+          <p class="lead">Custom applications, automation, and practice systems — <span class="hi">scoped</span>, <span class="hi">documented</span>, and built to run in <span class="hi">production</span>.</p>
+          <p class="avail"><span class="badge badge--avail">AVAILABLE</span> <span class="hi">Taking on new engagements</span> · remote NA &amp; EU</p>
+          <div class="cta-block">
+            <a class="btn btn--primary" href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer">Book 15-minute discovery call</a>
+            <a class="btn btn--ghost" href="mailto:ilia@levkine.ca?subject=Project%20enquiry">ilia@levkine.ca</a>
+          </div>
+        </div>
+        <div class="cal-slot is-blocked" data-cal-embed data-cal-theme="dark" data-cal-target="cal-inline-l0">
+          <div class="site-preview-bar"><span class="site-preview-url">cal.levkin.ca · book a call</span><a class="site-preview-go" href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer" aria-label="Open calendar in new tab">↗</a></div>
+          <div class="cal-embed-frame">
+            <div class="cal-inline" id="cal-inline-l0"></div>
+            <a class="cal-embed-fallback" href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer">
+              <img src="./previews/cal-dark.png" alt="" decoding="async" />
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
     <article class="folder f1" data-layer="1" id="layer-1">
-      <button type="button" class="tab" data-goto="1">L1 · application</button>
-      <div class="body">
-        <h2>Custom software</h2>
-        <p>Web apps, APIs, tools — TypeScript · Python · .NET · PostgreSQL</p>
+      <button type="button" class="tab" data-goto="1"><span class="tab-code">L1</span><span class="tab-label"> · Scope</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>Scope</h2>
+          <p><span class="hi">Boutique practice</span> — not a staffing agency. Clear deliverable and handoff so your team can own what ships.</p>
+        </div>
+        <a class="site-preview" href="/spec/" target="_blank" rel="noopener noreferrer">
+          <span class="site-preview-bar"><span class="site-preview-url">levkin.ca / spec</span><span class="site-preview-go" aria-hidden="true">↗</span></span>
+          <span class="site-preview-frame"><img class="site-preview-img" src="./previews/spec.png" alt="" loading="lazy" decoding="async" /></span>
+        </a>
       </div>
     </article>
 
-    <article class="folder f2" data-layer="2" id="layer-2">
-      <button type="button" class="tab" data-goto="2">L2 · automation</button>
+    <article class="folder f2 folder--services" data-layer="2" id="layer-2">
+      <button type="button" class="tab" data-goto="2"><span class="tab-code">L2</span><span class="tab-label"> · Services</span></button>
       <div class="body">
-        <h2>Automation</h2>
-        <p>n8n · Zapier · CI/CD · LLMs · <a href="https://auto.levkin.ca">auto.levkin.ca</a></p>
+        <div class="body-copy">
+          <h2>Services</h2>
+          <p class="section-lead">Primary lines — each engagement gets a <span class="hi">statement of work</span> after discovery.</p>
+          <ul class="service-deep-list">
+            <li><strong>Custom software</strong> — Web apps, APIs, and internal tools; fit the problem, not a preset stack.</li>
+            <li><strong>Automation</strong> — Reporting, notifications, data sync, ops in the background. <span class="xref"><a href="https://auto.levkin.ca" target="_blank" rel="noopener noreferrer">auto.levkin.ca</a></span></li>
+            <li><strong>CaseWare</strong> — Templates, releases, practice customization, pipeline work. <span class="xref"><a href="https://caseware.levkin.ca" target="_blank" rel="noopener noreferrer">caseware.levkin.ca</a></span></li>
+            <li><strong>Quality &amp; testing</strong> — Test strategy, automation, release confidence. <span class="xref"><a href="https://iliadobkin.com" target="_blank" rel="noopener noreferrer">iliadobkin.com</a></span></li>
+          </ul>
+          <p class="service-note"><strong>How we work:</strong> fixed scope · production-ready · handoff-friendly · right-sized solutions.</p>
+          <p class="service-note">Discovery call → written proposal → delivery with docs → optional support.</p>
+        </div>
+        <div class="body-fill" aria-hidden="true"></div>
       </div>
     </article>
 
     <article class="folder f3" data-layer="3" id="layer-3">
-      <button type="button" class="tab" data-goto="3">L3 · enterprise</button>
-      <div class="body">
-        <h2>CaseWare &amp; CaseView</h2>
-        <p>15+ years · CaseWare Intl, MNP, JazzIt · <a href="https://caseware.levkin.ca">caseware.levkin.ca</a></p>
+      <button type="button" class="tab" data-goto="3"><span class="tab-code">L3</span><span class="tab-label"> · Automation</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>Automation</h2>
+          <p>Workflows that run <span class="hi">reliably in the background</span> — reporting, sync, ops off your plate.</p>
+        </div>
+        <a class="site-preview" href="https://auto.levkin.ca" target="_blank" rel="noopener noreferrer">
+          <span class="site-preview-bar"><span class="site-preview-url">auto.levkin.ca</span><span class="site-preview-go" aria-hidden="true">↗</span></span>
+          <span class="site-preview-frame"><img class="site-preview-img" src="./previews/auto.png" alt="" loading="lazy" decoding="async" /></span>
+        </a>
       </div>
     </article>
 
     <article class="folder f4" data-layer="4" id="layer-4">
-      <button type="button" class="tab" data-goto="4">L4 · quality</button>
-      <div class="body">
-        <h2>Quality engineering</h2>
-        <p>Senior SDET · <a href="https://iliadobkin.com">iliadobkin.com</a></p>
+      <button type="button" class="tab" data-goto="4"><span class="tab-code">L4</span><span class="tab-label"> · Enterprise</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>CaseWare</h2>
+          <p>Templates, releases, and practice customization — from small fixes to full pipeline overhauls.</p>
+        </div>
+        <a class="site-preview" href="https://caseware.levkin.ca" target="_blank" rel="noopener noreferrer">
+          <span class="site-preview-bar"><span class="site-preview-url">caseware.levkin.ca</span><span class="site-preview-go" aria-hidden="true">↗</span></span>
+          <span class="site-preview-frame"><img class="site-preview-img" src="./previews/caseware.png" alt="" loading="lazy" decoding="async" /></span>
+        </a>
       </div>
     </article>
 
     <article class="folder f5" data-layer="5" id="layer-5">
-      <button type="button" class="tab" data-goto="5">L5 · operations</button>
-      <div class="body">
-        <h2>Job Ops</h2>
-        <p>Internal hiring orchestrator · <a href="https://jobs.levkin.ca">jobs.levkin.ca</a></p>
+      <button type="button" class="tab" data-goto="5"><span class="tab-code">L5</span><span class="tab-label"> · Portfolio</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>Quality &amp; testing</h2>
+          <p>Test strategy, automation, and release confidence without hiring full-time.</p>
+        </div>
+        <a class="site-preview" href="https://iliadobkin.com" target="_blank" rel="noopener noreferrer">
+          <span class="site-preview-bar"><span class="site-preview-url">iliadobkin.com</span><span class="site-preview-go" aria-hidden="true">↗</span></span>
+          <span class="site-preview-frame"><img class="site-preview-img" src="./previews/iliadobkin.png" alt="" loading="lazy" decoding="async" /></span>
+        </a>
       </div>
     </article>
 
     <article class="folder f6" data-layer="6" id="layer-6">
-      <button type="button" class="tab" data-goto="6">L6 · interface</button>
-      <div class="body">
-        <h2>Engage</h2>
-        <p>Discover → Proposal → Ship → Maintain</p>
-        <p><a class="btn" href="https://cal.levkin.ca/ilia/consult">Book 15 min</a> <a class="btn ghost" href="mailto:hello@levkine.ca">hello@levkine.ca</a></p>
+      <button type="button" class="tab" data-goto="6"><span class="tab-code">L6</span><span class="tab-label"> · Source</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>Source &amp; repos</h2>
+          <p>Project code and templates on our Gitea — private by default, yours on handoff.</p>
+        </div>
+        <a class="site-preview" href="https://git.levkin.ca/explore/repos" target="_blank" rel="noopener noreferrer">
+          <span class="site-preview-bar"><span class="site-preview-url">git.levkin.ca / explore</span><span class="site-preview-go" aria-hidden="true">↗</span></span>
+          <span class="site-preview-frame"><img class="site-preview-img" src="./previews/git-repos.png" alt="" loading="lazy" decoding="async" /></span>
+        </a>
       </div>
     </article>
 
-    <div class="stack-stop"></div>
-  </main>
+    <article class="folder f7 folder--last" data-layer="7" id="layer-7">
+      <button type="button" class="tab" data-goto="7"><span class="tab-code">L7</span><span class="tab-label"> · Engage</span></button>
+      <div class="body body--has-preview">
+        <div class="body-copy">
+          <h2>Terms &amp; contact</h2>
+          <ul class="terms-list">
+            <li><strong>Fixed scope</strong> — quoted after discovery; no open-ended hourly surprises.</li>
+            <li><strong>Production-ready</strong> — monitoring, failure handling, documentation included.</li>
+            <li><strong>Handoff-friendly</strong> — your team or the next vendor can maintain what we ship.</li>
+          </ul>
+        </div>
+        <div class="cal-slot is-blocked" data-cal-embed data-cal-theme="light" data-cal-target="cal-inline-l7">
+          <div class="site-preview-bar"><span class="site-preview-url">cal.levkin.ca · book a call</span><a class="site-preview-go" href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer" aria-label="Open calendar in new tab">↗</a></div>
+          <div class="cal-embed-frame">
+            <div class="cal-inline" id="cal-inline-l7"></div>
+            <a class="cal-embed-fallback" href="https://cal.levkin.ca/ilia/consult" target="_blank" rel="noopener noreferrer">
+              <img src="./previews/cal-light.png" alt="" decoding="async" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-  <footer class="foot"><a href="https://git.levkin.ca">git.levkin.ca</a><span>levkin.ca</span></footer>
+    <div class="stack-stop" aria-hidden="true"></div>
+  </main>
   <script type="module">
     import { initStackScroll } from '../shared/stack-scroll.js';
-    initStackScroll();
+    import { initRailRoller } from './folder-rail.js';
+    import { initCalEmbeds } from './folder-cal.js';
+    initStackScroll({
+      sectionSelector: '.folder[data-layer]',
+      mountSelector: '.mount',
+      foldTabs: true,
+      interactionMode: 'navigate',
+    });
+    initRailRoller();
+    initCalEmbeds();
   </script>
 </body>
 </html>

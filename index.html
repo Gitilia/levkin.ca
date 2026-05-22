@@ -24,7 +24,7 @@
       min-height: 100vh;
       line-height: 1.5;
     }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
     header { margin-bottom: 3rem; }
     .eyebrow {
       font-family: 'DM Mono', monospace;
@@ -44,15 +44,7 @@
     .grid {
       display: grid;
       gap: 1.25rem;
-    }
-    @media (min-width: 640px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 900px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (min-width: 1200px) {
-      .grid { grid-template-columns: repeat(5, 1fr); }
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
     a.card {
       display: block;
@@ -68,12 +60,10 @@
       transform: translateY(-3px);
     }
     .preview {
-      height: 130px;
+      height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
-      overflow: hidden;
       font-size: 0.7rem;
     }
     .preview--spec {
@@ -81,35 +71,6 @@
       color: #1a1a18;
       font-family: 'DM Mono', monospace;
       letter-spacing: 0.06em;
-    }
-    .preview--slab {
-      background: #f5f5f0;
-      color: #0a0a0a;
-      font-weight: 800;
-      font-size: 2rem;
-      letter-spacing: -0.06em;
-      font-family: system-ui, sans-serif;
-    }
-    .preview--relay {
-      background: #1a1814;
-      color: #d4a574;
-      font-family: 'DM Mono', monospace;
-      letter-spacing: 0.2em;
-    }
-    .preview--relay::after {
-      content: '· · · ─ ─ ·';
-      position: absolute;
-      bottom: 1rem;
-      font-size: 0.55rem;
-      opacity: 0.5;
-    }
-    .preview--vault {
-      background: linear-gradient(160deg, #0c1410 0%, #1a2820 100%);
-      color: #c9b896;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
     }
     .preview--stack {
       background: #0e0e10;
@@ -119,17 +80,21 @@
     }
     .preview--stack .card-layer {
       width: 70%;
-      height: 14px;
+      height: 12px;
       border-radius: 3px;
       border: 1px solid rgba(255,255,255,0.1);
       background: linear-gradient(90deg, #2a2a32, #3a3a46);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
     .preview--stack .card-layer:nth-child(1) { width: 55%; opacity: 0.5; }
-    .preview--stack .card-layer:nth-child(2) { width: 62%; opacity: 0.65; }
-    .preview--stack .card-layer:nth-child(3) { width: 68%; opacity: 0.8; }
-    .preview--stack .card-layer:nth-child(4) { width: 75%; }
-    .preview--stack .card-layer:nth-child(5) { width: 82%; background: #4a4a58; }
+    .preview--stack .card-layer:nth-child(2) { width: 62%; opacity: 0.7; }
+    .preview--stack .card-layer:nth-child(3) { width: 75%; background: #4a4a58; }
+    .preview--folder {
+      background: #e8e2d4;
+      color: #2a2824;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      border-left: 12px solid #c9a86c;
+    }
     .card-body { padding: 1.15rem 1.25rem 1.35rem; }
     .card-body h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
     .card-body p { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
@@ -141,13 +106,6 @@
       color: var(--accent);
       letter-spacing: 0.06em;
     }
-    .kept {
-      display: inline-block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      color: var(--muted);
-      margin-left: 0.35rem;
-    }
     footer {
       margin-top: 3.5rem;
       padding-top: 2rem;
@@ -157,120 +115,43 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer code { font-family: 'DM Mono', monospace; font-size: 0.75rem; }
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 2rem 0 1rem;
-    }
-    .grid-stacks { margin-bottom: 0; }
-    .preview--folder {
-      background: #e8e2d4;
-      color: #2a2824;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      border-left: 12px solid #c9a86c;
-    }
-    .preview--rack {
-      background: #12141a;
-      color: #4ade80;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.15em;
-      border: 2px solid #2a3040;
-    }
-    .preview--trace {
-      background: #0d0d0f;
-      color: #6b9b6b;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <p class="eyebrow">levkin.ca · round 3</p>
-      <h1>Eight directions.</h1>
-      <p class="lead">Five brand concepts + four stack variants (L0–L6, stops on time). Spec updated with iliadobkin.com.</p>
+      <p class="eyebrow">levkin.ca</p>
+      <h1>Three directions.</h1>
+      <p class="lead">Spec for the company story. Cards and Folder for the L0–L6 scroll stack — click a layer to bring it to the front.</p>
     </header>
 
-    <p class="section-label">Brand</p>
     <div class="grid">
       <a class="card" href="/spec/">
         <div class="preview preview--spec">GET /company → 200</div>
         <div class="card-body">
-          <h2>Spec <span class="kept">kept</span></h2>
-          <p>Levkin as an RFC. Endpoints, schemas, required properties. Precise and documentation-native.</p>
-          <span class="tag">paper · RFC · precise</span>
+          <h2>Spec</h2>
+          <p>Levkin as an RFC. Endpoints, schemas, required properties.</p>
+          <span class="tag">paper · RFC</span>
         </div>
       </a>
 
-      <a class="card" href="/slab/">
-        <div class="preview preview--slab">LEV</div>
-        <div class="card-body">
-          <h2>Slab</h2>
-          <p>Brutalist poster. Massive type, hard edges, zero decoration. Confidence without explaining itself.</p>
-          <span class="tag">brutalist · bold · minimal</span>
-        </div>
-      </a>
-
-      <a class="card" href="/relay/">
-        <div class="preview preview--relay">RELAY</div>
-        <div class="card-body">
-          <h2>Relay</h2>
-          <p>Telegraph and signal chain. Messages arrive, get decoded. Communication as craft.</p>
-          <span class="tag">vintage · interactive · warm</span>
-        </div>
-      </a>
-
-      <a class="card" href="/vault/">
-        <div class="preview preview--vault">Secured</div>
-        <div class="card-body">
-          <h2>Vault</h2>
-          <p>Institutional trust. Deep green, brass accents. For enterprise clients who need gravitas.</p>
-          <span class="tag">trust · enterprise · calm</span>
-        </div>
-      </a>
-
-    </div>
-
-    <p class="section-label">Stack variants (scroll test)</p>
-    <div class="grid grid-stacks">
       <a class="card" href="/stack/">
         <div class="preview preview--stack">
-          <span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span>
+          <span class="card-layer"></span><span class="card-layer"></span><span class="card-layer"></span>
         </div>
         <div class="card-body">
-          <h2>Stack · Cards</h2>
-          <p>L0–L6 overlapping sticky cards. Scroll stops at L6.</p>
-          <span class="tag">default · dark · technical</span>
+          <h2>Cards</h2>
+          <p>Dark sticky stack. Scroll or click L0–L6 to focus a layer.</p>
+          <span class="tag">stack · scroll</span>
         </div>
       </a>
+
       <a class="card" href="/stack-folder/">
-        <div class="preview preview--folder">L0│tab</div>
+        <div class="preview preview--folder">L0│ L1│ L2│</div>
         <div class="card-body">
-          <h2>Stack · Folder</h2>
-          <p>Tabs on top, staggered left — all readable. Click tab or L0–L6 rail to jump.</p>
-          <span class="tag">folder · tabs · office</span>
-        </div>
-      </a>
-      <a class="card" href="/stack-rack/">
-        <div class="preview preview--rack">U0▮U1▮</div>
-        <div class="card-body">
-          <h2>Stack · Rack</h2>
-          <p>Server rack 1U units — LEDs, handles, infra stack.</p>
-          <span class="tag">rack · infra · LEDs</span>
-        </div>
-      </a>
-      <a class="card" href="/stack-trace/">
-        <div class="preview preview--trace">at Levkin.*</div>
-        <div class="card-body">
-          <h2>Stack · Trace</h2>
-          <p>Call-stack frames — iliadobkin.com as quality frame.</p>
-          <span class="tag">trace · devtools · mono</span>
+          <h2>Folder</h2>
+          <p>Spec as a filing cabinet — manila tabs, clause sections, pull a file forward.</p>
+          <span class="tag">folder · spec</span>
         </div>
       </a>
     </div>

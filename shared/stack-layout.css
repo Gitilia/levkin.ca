@@ -1,6 +1,6 @@
-/* Spacer after L6 so scroll can stop */
 .stack-stop,
 .stop {
-  height: 1px;
-  margin-bottom: 4rem;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
 }

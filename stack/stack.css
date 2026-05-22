@@ -36,14 +36,23 @@ body {
   margin: 0 auto;
 }
 
-/* Each card sticks; next scrolls over previous */
+/* Compact sticky card — click brings to front */
+.layer:not(.layer-6) {
+  margin-bottom: var(--stack-scroll-slot);
+}
+
 .layer {
   position: sticky;
-  min-height: var(--stack-card-min);
-  margin-bottom: 1.25rem;
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.layer.is-front {
+  z-index: 100 !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.65);
 }
 
 .layer-0 { top: var(--stack-stick); z-index: 1; background: #1c1c20; }
@@ -52,9 +61,9 @@ body {
 .layer-3 { top: calc(var(--stack-stick) + var(--stack-step) * 3); z-index: 4; background: #343440; }
 .layer-4 { top: calc(var(--stack-stick) + var(--stack-step) * 4); z-index: 5; background: #3c3c4a; }
 .layer-5 { top: calc(var(--stack-stick) + var(--stack-step) * 5); z-index: 6; background: #444454; }
-.layer-6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 7; background: #4c4c5e; margin-bottom: 4rem; }
+.layer-6 { top: calc(var(--stack-stick) + var(--stack-step) * 6); z-index: 7; background: #4c4c5e; margin-bottom: 0; }
 
-.layer-inner { padding: 1.2rem 1.35rem 1.5rem; }
+.layer-inner { padding: 0.95rem 1.15rem 1.05rem; }
 
 .layer-head {
   display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.65rem;
@@ -70,8 +79,8 @@ body {
 .layer-id:hover { text-decoration: underline; }
 .layer-name { color: #6b6966; text-transform: uppercase; letter-spacing: 0.1em; }
 .layer-link { margin-left: auto; color: #8b9cb3; text-decoration: none; font-size: 0.58rem; }
-.layer h1 { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; }
-.layer h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.35rem; }
+.layer h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; }
+.layer h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.3rem; }
 .tagline { font-family: var(--mono); font-size: 0.65rem; color: #6b6966; margin-bottom: 0.4rem; }
 .layer-copy { font-size: 0.9rem; color: #a8a6a1; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0; }
@@ -105,6 +114,6 @@ body {
 .stack-ruler button.active { color: #c4a574; }
 
 @media (max-width: 700px) {
-  :root { --stack-step: 1.75rem; --stack-card-min: 48vh; }
+  :root { --stack-step: 1.5rem; }
   .variants { display: none; }
 }
