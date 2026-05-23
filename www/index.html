@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levkin — Company Specification</title>
+  <meta name="description" content="Levkin Inc.: software development and automation for production systems." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('levkin-spec-prefs') || '{}');
+        if (p.theme) document.documentElement.dataset.theme = p.theme;
+        if (p.fontScale) document.documentElement.style.setProperty('--font-scale', p.fontScale);
+      } catch (e) { /* ignore */ }
+    })();
+  </script>
+  <script type="module" crossorigin src="/assets/spec-BY4A7Wkv.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="stylesheet" crossorigin href="/assets/spec-BoGenpAF.css">
+    <script defer src="https://stats.levkin.ca/script.js" data-website-id="2a3bc7b2-b827-4770-8b31-c94016667734"></script>
+  </head>
+<body>
+  <a class="skip-link" href="#main">Skip to specification</a>
+
+  <aside class="toc" aria-labelledby="toc-heading">
+    <a href="/folders/" class="back">← folders</a>
+    <p class="toc-doc-id">LK-SPEC-1.0</p>
+    <h2 id="toc-heading" class="toc-title">Table of contents</h2>
+    <nav aria-label="Specification sections">
+      <a href="#preamble"><span class="toc-num">—</span> Preamble</a>
+      <a href="#scope"><span class="toc-num">1</span> Scope</a>
+      <a href="#services"><span class="toc-num">2</span> Services</a>
+      <a href="#working"><span class="toc-num">3</span> Terms of engagement</a>
+      <a href="#links"><span class="toc-num">4</span> References</a>
+      <a href="#contact"><span class="toc-num">5</span> Contact</a>
+    </nav>
+
+    <section class="prefs" aria-labelledby="prefs-heading">
+      <h2 id="prefs-heading" class="prefs-heading">Display</h2>
+      <fieldset class="theme-field">
+        <legend class="theme-legend">Theme</legend>
+        <div class="theme-options" role="radiogroup" aria-label="Color theme">
+          <label class="theme-option">
+            <input type="radio" name="theme" value="light" checked />
+            <span>Light</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="dim" />
+            <span>Dim</span>
+          </label>
+          <label class="theme-option">
+            <input type="radio" name="theme" value="dark" />
+            <span>Dark</span>
+          </label>
+        </div>
+      </fieldset>
+      <div class="font-controls">
+        <span class="font-label" id="font-controls-label">Text size</span>
+        <div class="font-buttons" role="group" aria-labelledby="font-controls-label">
+          <button type="button" class="font-btn" data-action="decrease" aria-label="Decrease text size">A−</button>
+          <button type="button" class="font-btn" data-action="reset" aria-label="Reset text size to default">A</button>
+          <button type="button" class="font-btn" data-action="increase" aria-label="Increase text size">A+</button>
+        </div>
+        <span class="font-scale-readout" id="font-scale-readout" aria-live="polite">100%</span>
+      </div>
+    </section>
+
+    <p class="meta">Levkin Inc.<br />Effective May 2026</p>
+  </aside>
+
+  <main id="main" class="main" tabindex="-1">
+    <div class="desk">
+      <article class="instrument">
+        <header class="letterhead">
+          <p class="doc-class">Company Specification</p>
+          <h1>Levkin Software Development Company</h1>
+          <p class="doc-lead">Master overview of services and engagement terms. This document is not a binding agreement; a statement of work is issued for each engagement.</p>
+
+          <table class="meta-table">
+            <tbody>
+              <tr><th scope="row">Document</th><td>LK-SPEC-1.0</td></tr>
+              <tr><th scope="row">Entity</th><td>Levkin Inc.</td></tr>
+              <tr><th scope="row">Status</th><td><span class="badge">ACTIVE</span></td></tr>
+              <tr><th scope="row">Effective</th><td><time datetime="2026-05-20">20 May 2026</time></td></tr>
+            </tbody>
+          </table>
+        </header>
+
+        <div id="preamble" class="preamble clause-anchor">
+          <h2 class="section-heading"><span class="section-num">—</span> Preamble</h2>
+          <p><strong>Levkin Inc.</strong> builds and maintains software for businesses — custom applications, automation, and specialized practice systems. Work is scoped, documented, and built to run in production without hand-holding.</p>
+          <p><span class="badge">AVAILABLE</span> Taking on new engagements. Remote across North American and European time zones.</p>
+        </div>
+
+        <section id="scope" class="article clause-anchor" aria-labelledby="scope-heading">
+          <h2 id="scope-heading" class="section-heading"><span class="section-num">1.</span> Scope</h2>
+          <p>Boutique practice — not a staffing agency. Projects have a clear start, deliverable, and handoff so your team can own what ships.</p>
+          <p>Typical flow: a short discovery call, a fixed-scope proposal, delivery with documentation, then optional ongoing support if you want it.</p>
+        </section>
+
+        <section id="services" class="article clause-anchor" data-article="2" aria-labelledby="services-heading">
+          <h2 id="services-heading" class="section-heading"><span class="section-num">2.</span> Services</h2>
+          <p class="section-lead">Primary service lines. Scope, timeline, and fees for a given engagement are set out in a separate statement of work.</p>
+          <div class="subsections">
+            <div class="subsection">
+              <h3 class="subsection-title">Custom software</h3>
+              <p>Web apps, APIs, and internal tools — chosen to fit the problem, not a preset stack.</p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">Automation</h3>
+              <p>Workflows and integrations that run reliably in the background — reporting, notifications, data sync, and repetitive ops work off your plate. <span class="xref">See <a href="https://auto.levkin.ca" rel="noopener noreferrer">auto.levkin.ca<span class="sr-only"> (external)</span></a>.</span></p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">CaseWare</h3>
+              <p>Templates, releases, and practice customization for firms on CaseWare — from small fixes to full pipeline overhauls. <span class="xref">See <a href="https://caseware.levkin.ca" rel="noopener noreferrer">caseware.levkin.ca<span class="sr-only"> (external)</span></a>.</span></p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">Quality &amp; testing</h3>
+              <p>Test strategy, automation, and release confidence for teams that need an experienced QA lead without hiring full-time. <span class="xref">See <a href="https://iliadobkin.com" rel="noopener noreferrer">iliadobkin.com<span class="sr-only"> (external)</span></a>.</span></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="working" class="article clause-anchor" data-article="3" aria-labelledby="working-heading">
+          <h2 id="working-heading" class="section-heading"><span class="section-num">3.</span> Terms of engagement</h2>
+          <div class="subsections">
+            <div class="subsection">
+              <h3 class="subsection-title">Fixed scope</h3>
+              <p>Quoted after discovery; no open-ended hourly surprises.</p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">Production-ready</h3>
+              <p>Monitoring, failure handling, and documentation included by default.</p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">Handoff-friendly</h3>
+              <p>Your team or the next vendor can maintain what we ship.</p>
+            </div>
+            <div class="subsection">
+              <h3 class="subsection-title">Right-sized</h3>
+              <p>The smallest solution that actually solves the problem.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="links" class="article clause-anchor" aria-labelledby="links-heading">
+          <h2 id="links-heading" class="section-heading"><span class="section-num">4.</span> References</h2>
+          <table class="contract-table">
+            <caption class="sr-only">External references</caption>
+            <thead>
+              <tr><th scope="col">Reference</th><th scope="col">Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="https://auto.levkin.ca" rel="noopener noreferrer">auto.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Automation</td></tr>
+              <tr><td><a href="https://caseware.levkin.ca" rel="noopener noreferrer">caseware.levkin.ca<span class="sr-only"> (external)</span></a></td><td>CaseWare</td></tr>
+              <tr><td><a href="https://cal.levkin.ca/ilia/consult" rel="noopener noreferrer">cal.levkin.ca<span class="sr-only"> (external)</span></a></td><td>Book a discovery call</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="contact" class="article article--final clause-anchor" aria-labelledby="contact-heading">
+          <h2 id="contact-heading" class="section-heading"><span class="section-num">5.</span> Contact</h2>
+          <p class="section-lead">To discuss a project, use either channel below. A formal statement of work follows acceptance of a written proposal.</p>
+          <table class="contract-table contract-table--contact">
+            <caption class="sr-only">Contact channels</caption>
+            <tbody>
+              <tr>
+                <th scope="row">Schedule</th>
+                <td><a href="https://cal.levkin.ca/ilia/consult" rel="noopener noreferrer">15-minute discovery call<span class="sr-only"> (opens cal.levkin.ca)</span></a></td>
+              </tr>
+              <tr>
+                <th scope="row">Correspondence</th>
+                <td><a href="mailto:ilia@levkine.ca?subject=Project%20enquiry">ilia@levkine.ca</a></td>
+              </tr>
+            </tbody>
+          </table>
+          <footer class="instrument-footer">
+            <p>© Levkin Inc. · Canadian software development</p>
+            <p>LK-SPEC-1.0 · levkin.ca · Effective 20 May 2026</p>
+          </footer>
+        </section>
+      </article>
+    </div>
+  </main>
+
+</body>
+</html>

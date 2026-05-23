@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:www": "node scripts/prepare-www.mjs",
     "preview": "vite preview",
     "capture-previews": "node scripts/capture-previews.mjs",
     "test:folder": "node scripts/test-stack-folder.mjs"
