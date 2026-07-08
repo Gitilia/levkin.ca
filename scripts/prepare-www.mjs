@@ -37,6 +37,9 @@ await mkdir(join(www, 'folders'), { recursive: true });
 
 await cp(join(dist, 'assets'), join(www, 'assets'), { recursive: true });
 await cp(join(root, 'public', 'favicon.svg'), join(www, 'favicon.svg'));
+await cp(join(root, 'public', 'robots.txt'), join(www, 'robots.txt'));
+await cp(join(root, 'public', 'sitemap.xml'), join(www, 'sitemap.xml'));
+await cp(join(root, 'public', 'og-image.png'), join(www, 'og-image.png'));
 
 const specHtml = await readFile(join(dist, 'spec', 'index.html'), 'utf8');
 await writeFile(

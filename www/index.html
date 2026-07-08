@@ -2,10 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Levkin — Company Specification</title>
   <meta name="description" content="Levkin Inc.: software development and automation for production systems." />
+  <meta property="og:title" content="Levkin — Company Specification" />
+  <meta property="og:description" content="Levkin Inc.: software development and automation for production systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://levkin.ca/" />
+  <meta property="og:site_name" content="Levkin Inc." />
+  <meta property="og:image" content="https://levkin.ca/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Levkin — Company Specification" />
+  <meta name="twitter:description" content="Levkin Inc.: software development and automation for production systems." />
+  <meta name="twitter:image" content="https://levkin.ca/og-image.png" />
+  <link rel="canonical" href="https://levkin.ca/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Levkin Inc.",
+      "url": "https://levkin.ca/",
+      "description": "Software development and automation for production systems.",
+      "email": "ilia@levkine.ca",
+      "areaServed": ["North America", "Europe"],
+      "sameAs": [
+        "https://auto.levkin.ca/",
+        "https://caseware.levkin.ca/",
+        "https://iliadobkin.com/"
+      ]
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
@@ -18,30 +45,33 @@
       } catch (e) { /* ignore */ }
     })();
   </script>
-  <script type="module" crossorigin src="/assets/spec-BY4A7Wkv.js"></script>
+  <script type="module" crossorigin src="/assets/spec-B2lX7K2V.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/spec-BoGenpAF.css">
+  <link rel="stylesheet" crossorigin href="/assets/spec-Cx4F7IDd.css">
     <script defer src="https://stats.levkin.ca/script.js" data-website-id="2a3bc7b2-b827-4770-8b31-c94016667734"></script>
   </head>
 <body>
   <a class="skip-link" href="#main">Skip to specification</a>
 
   <aside class="toc" aria-labelledby="toc-heading">
-    <a href="/folders/" class="back">← folders</a>
-    <p class="toc-doc-id">LK-SPEC-1.0</p>
+    <div class="toc-head">
+      <a href="/folders/" class="back">← folders</a>
+      <p class="toc-doc-id">LK-SPEC-1.0</p>
+    </div>
     <h2 id="toc-heading" class="toc-title">Table of contents</h2>
     <nav aria-label="Specification sections">
       <a href="#preamble"><span class="toc-num">—</span> Preamble</a>
       <a href="#scope"><span class="toc-num">1</span> Scope</a>
       <a href="#services"><span class="toc-num">2</span> Services</a>
-      <a href="#working"><span class="toc-num">3</span> Terms of engagement</a>
+      <a href="#working"><span class="toc-num">3</span> <span class="toc-long">Terms of engagement</span><span class="toc-short">Terms</span></a>
       <a href="#links"><span class="toc-num">4</span> References</a>
       <a href="#contact"><span class="toc-num">5</span> Contact</a>
     </nav>
 
     <section class="prefs" aria-labelledby="prefs-heading">
       <h2 id="prefs-heading" class="prefs-heading">Display</h2>
-      <fieldset class="theme-field">
+      <div class="prefs-bar">
+        <fieldset class="theme-field">
         <legend class="theme-legend">Theme</legend>
         <div class="theme-options" role="radiogroup" aria-label="Color theme">
           <label class="theme-option">
@@ -57,8 +87,8 @@
             <span>Dark</span>
           </label>
         </div>
-      </fieldset>
-      <div class="font-controls">
+        </fieldset>
+        <div class="font-controls">
         <span class="font-label" id="font-controls-label">Text size</span>
         <div class="font-buttons" role="group" aria-labelledby="font-controls-label">
           <button type="button" class="font-btn" data-action="decrease" aria-label="Decrease text size">A−</button>
@@ -66,6 +96,7 @@
           <button type="button" class="font-btn" data-action="increase" aria-label="Increase text size">A+</button>
         </div>
         <span class="font-scale-readout" id="font-scale-readout" aria-live="polite">100%</span>
+        </div>
       </div>
     </section>
 

@@ -7,7 +7,7 @@ Homepage design concepts for Levkin Inc.
 | **Spec** | `/spec/` | Company story as RFC-style documentation |
 | **Folder** | `/stack-folder/` | Manila folders L0–L7, sticky tab stack, site previews |
 
-Open `/` to pick a direction.
+**Production** (`levkin.ca`): `/` → spec, `/folders/` → stack. Dev picker at `/` only when running `npm run dev` (not deployed).
 
 ## Develop
 
@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-Vite default: `http://localhost:5173`
+Dev server: `http://localhost:5175` (5173 is often taken by other apps)
 
 | Page | URL |
 |------|-----|
@@ -28,8 +28,21 @@ Vite default: `http://localhost:5173`
 
 ```bash
 npm run build
-# dist/
+# dist/ — Vite multi-page output
+
+npm run build:www
+# www/ — production layout for nginx (commit www/ before deploy)
 ```
+
+### Deploy (pve10 LXC 220)
+
+```bash
+npm run build:www
+git add www/ && git commit -m "Rebuild www" && git push origin main
+ssh root@10.0.10.10 'pct exec 220 -- bash -c "cd /var/www/levkin && git pull origin main"'
+```
+
+Requires DNS: `levkin.ca` and `www.levkin.ca` A → your home IP (same as other `*.levkin.ca` sites). Caddy on VM 106 proxies to `10.0.10.60:80`.
 
 ## Folder stack (`/stack-folder/`)
 
@@ -52,8 +65,21 @@ Writes PNGs used in `stack-folder/previews/` (spec, auto, caseware, iliadobkin, 
 
 ```bash
 npm run dev
-STACK_URL=http://localhost:5173/stack-folder/ npm run test:folder
+STACK_URL=http://localhost:5175/stack-folder/ npm run test:folder
 ```
+
+Playwright runs **desktop** (tab alignment at max scroll) and **mobile** (bottom tab rail, no horizontal overflow, L3 jump).
+
+### Test on a phone
+
+Dev server listens on your LAN (`host: true` in Vite config):
+
+```bash
+npm run dev
+# open http://<your-lan-ip>:5175/stack-folder/ on the phone (same Wi‑Fi)
+```
+
+Production: [levkin.ca/folders/](https://levkin.ca/folders/) — on viewports ≤720px the side rail becomes a **bottom tab bar** (L0–L7) with safe-area padding for iOS.
 
 ## Related sites
 

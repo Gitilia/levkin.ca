@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'stack-folder/previews');
-const base = process.env.PREVIEW_BASE || 'http://localhost:5177';
+const base = process.env.PREVIEW_BASE || 'http://localhost:5175';
 
 mkdirSync(out, { recursive: true });
 

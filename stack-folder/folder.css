@@ -681,8 +681,51 @@ a.site-preview:hover {
 }
 
 @media (max-width: 720px) {
-  .tab-rail { display: none; }
-  .mount { padding-right: 1rem; }
+  .site-header {
+    font-size: 0.58rem;
+    line-height: 1.35;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .tab-rail {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    padding: 0.45rem 0.5rem calc(0.45rem + env(safe-area-inset-bottom, 0px));
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border: none;
+    border-top: 1px solid #4a4844;
+  }
+
+  .tab-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rail-tab {
+    flex: 0 0 auto;
+    min-height: 2.75rem;
+    min-width: 2.5rem;
+    padding: 0.4rem 0.55rem;
+    font-size: 0.62rem;
+  }
+
+  .mount {
+    padding-right: 1rem;
+    padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+    --folder-body-h: min(28rem, calc(100dvh - var(--stack-nav) - var(--stack-tab-h) - 5.5rem));
+  }
+
+  .tab {
+    min-height: 2.75rem;
+    padding-top: 0.5rem;
+  }
+
   :root { --tab-offset: 1.75rem; }
 }
 
