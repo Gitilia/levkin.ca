@@ -234,7 +234,12 @@ body {
 
 .body--has-preview .body-copy h1 {
   font-size: 1.2rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
+}
+
+.body--has-preview .body-copy .tagline {
+  font-size: 0.88rem;
+  margin-bottom: 0.25rem;
 }
 
 .body--has-preview .body-copy h2 {
@@ -485,8 +490,17 @@ a.site-preview:hover {
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.25;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
   color: var(--ink);
+}
+
+.tagline {
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 0.45rem;
 }
 
 .body h2 {
