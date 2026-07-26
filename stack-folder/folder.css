@@ -485,6 +485,14 @@ a.site-preview:hover {
   margin-bottom: 0.35rem;
 }
 
+.brand-mark {
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 0 0.45rem;
+  border-radius: 0.45rem;
+}
+
 .body h1 {
   font-family: var(--display);
   font-size: 1.35rem;

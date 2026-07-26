@@ -34,15 +34,9 @@ npm run build:www
 # www/ — production layout for nginx (commit www/ before deploy)
 ```
 
-### Deploy (pve10 LXC 220)
+### Deploy
 
-```bash
-npm run build:www
-git add www/ && git commit -m "Rebuild www" && git push origin main
-ssh root@10.0.10.10 'pct exec 220 -- bash -c "cd /var/www/levkin && git pull origin main"'
-```
-
-Requires DNS: `levkin.ca` and `www.levkin.ca` A → your home IP (same as other `*.levkin.ca` sites). Caddy on VM 106 proxies to `10.0.10.60:80`.
+Deployed to the homelab web LXC via the private ansible repo (see internal docs).
 
 ## Folder stack (`/stack-folder/`)
 

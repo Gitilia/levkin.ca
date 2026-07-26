@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Levkin — Logo variants</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared/logo.css" />
+  <style>
+    :root {
+      --ink: #1a1a18;
+      --muted: #4a4844;
+      --paper: #f0ede8;
+      --desk: #3d3830;
+      --rule: #c8c2b8;
+      --accent: #c9a86c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Literata, Georgia, serif;
+      background: var(--desk);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 2rem 1.25rem 4rem;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    .top { margin-bottom: 1.75rem; color: #ebe4d4; }
+    .top a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .top h1 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin: 0.65rem 0 0.35rem;
+      color: #f0eeea;
+    }
+    .top p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: #b8b4ac;
+      line-height: 1.5;
+    }
+    .card {
+      background: var(--paper);
+      border-radius: 4px;
+      padding: 1.5rem 1.35rem 1.35rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 16px 40px rgba(0,0,0,.12);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .card-head h2 { font-size: 0.95rem; font-weight: 600; }
+    .card-head .code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .card p.note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      line-height: 1.45;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .panel {
+      flex: 1 1 240px;
+      padding: 1.1rem 1rem;
+      border: 1px dashed var(--rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .panel--dark {
+      background: #0a0a0b;
+      border-color: #2a2a28;
+      --logo-fg: #f0eeea;
+      color: #f0eeea;
+    }
+    .panel-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .panel--dark .panel-label { color: #8a8680; }
+    .favicon-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-top: 0.85rem;
+    }
+    .favicon-row svg { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+    .favicon-row span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a href="/">← spec</a>
+      ·
+      <a href="/folders/">folders</a>
+      <h1>Logo variants</h1>
+      <p>A–K cleaned. Light + dark + favicon. Tagline always: Custom software, automation &amp; AI workflows.</p>
+    </div>
+
+    <!-- A -->
+    <article class="card" id="a">
+      <div class="card-head"><h2>A · Spec-box</h2><span class="code">scoped / SOW</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(2,14)">
+              <polyline points="20,0 0,0 0,22 20,22" />
+              <circle cx="9" cy="11" r="2" />
+            </g>
+            <text x="34" y="24" class="logo-title">Levkin</text>
+            <text x="34" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(2,14)">
+              <polyline points="20,0 0,0 0,22 20,22" />
+              <circle cx="9" cy="11" r="2" />
+            </g>
+            <text x="34" y="24" class="logo-title">Levkin</text>
+            <text x="34" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <polyline points="22,8 10,8 10,24 22,24" fill="none" stroke="#c9a86c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="2" fill="#c9a86c"/>
+        </svg>
+        <span>Favicon: open box + node</span>
+      </div>
+      <p class="note">Scoped / bounded work — a ticket or SOW.</p>
+    </article>
+
+    <!-- B -->
+    <article class="card" id="b">
+      <div class="card-head"><h2>B · Routed L</h2><span class="code">pipeline / route</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(4,12)">
+              <path d="M2 0 L2 24 L20 24" />
+              <circle cx="2" cy="24" r="2.3" />
+            </g>
+            <text x="36" y="24" class="logo-title">Levkin</text>
+            <text x="36" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(4,12)">
+              <path d="M2 0 L2 24 L20 24" />
+              <circle cx="2" cy="24" r="2.3" />
+            </g>
+            <text x="36" y="24" class="logo-title">Levkin</text>
+            <text x="36" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <path d="M10 7 L10 23 L23 23" fill="none" stroke="#c9a86c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="23" r="2.2" fill="#c9a86c"/>
+        </svg>
+        <span>Favicon: L-route + corner node</span>
+      </div>
+      <p class="note">Works at 16–32px without changing the lockup tone.</p>
+    </article>
+
+    <!-- C -->
+    <article class="card" id="c">
+      <div class="card-head"><h2>C · Cursor accent</h2><span class="code">CLI / prompt</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="24" class="logo-title">Levkin</text>
+            <text x="0" y="44" class="logo-tagline">&gt; custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="24" class="logo-title">Levkin</text>
+            <text x="0" y="44" class="logo-tagline">&gt; custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <text x="16" y="21" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="500">&gt;_</text>
+        </svg>
+        <span>Favicon: prompt caret</span>
+      </div>
+      <p class="note">CLI hint without futuristic gloss. Drop &gt; at tiny sizes.</p>
+    </article>
+
+    <!-- D: brackets hug wordmark only; tagline free below -->
+    <article class="card" id="d">
+      <div class="card-head"><h2>D · Brackets</h2><span class="code">array / scope</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark">
+              <polyline points="6,8 2,8 2,30 6,30" />
+              <polyline points="98,8 102,8 102,30 98,30" />
+            </g>
+            <text x="14" y="24" class="logo-title">Levkin</text>
+            <text x="14" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark">
+              <polyline points="6,8 2,8 2,30 6,30" />
+              <polyline points="98,8 102,8 102,30 98,30" />
+            </g>
+            <text x="14" y="24" class="logo-title">Levkin</text>
+            <text x="14" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <polyline points="12,8 8,8 8,24 12,24" fill="none" stroke="#c9a86c" stroke-width="1.8" stroke-linecap="round"/>
+          <polyline points="20,8 24,8 24,24 20,24" fill="none" stroke="#c9a86c" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <span>Favicon: [ ]</span>
+      </div>
+      <p class="note">Brackets hug the wordmark only — tagline sits clear below.</p>
+    </article>
+
+    <!-- E -->
+    <article class="card" id="e">
+      <div class="card-head"><h2>E · Letterhead rule</h2><span class="code">stationery</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="20" class="logo-title">Levkin</text>
+            <line class="logo-rule" x1="0" y1="28" x2="220" y2="28" />
+            <text x="0" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="20" class="logo-title">Levkin</text>
+            <line class="logo-rule" x1="0" y1="28" x2="220" y2="28" />
+            <text x="0" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <text x="16" y="15" text-anchor="middle" fill="#c9a86c" font-family="Literata, Georgia, serif" font-size="9" font-weight="600">L</text>
+          <line x1="8" y1="20" x2="24" y2="20" stroke="#c9a86c" stroke-width="1.2"/>
+        </svg>
+        <span>Favicon: L + hairline</span>
+      </div>
+      <p class="note">Pure firm mark — printed letterhead.</p>
+    </article>
+
+    <!-- F -->
+    <article class="card" id="f">
+      <div class="card-head"><h2>F · LK monogram</h2><span class="code">initials</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <rect class="logo-mark" x="2" y="10" width="26" height="26" rx="3" />
+            <text x="15" y="27" text-anchor="middle" class="logo-mono" font-size="10" font-weight="500">LK</text>
+            <text x="38" y="24" class="logo-title">Levkin</text>
+            <text x="38" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <rect class="logo-mark" x="2" y="10" width="26" height="26" rx="3" />
+            <text x="15" y="27" text-anchor="middle" class="logo-mono" font-size="10" font-weight="500">LK</text>
+            <text x="38" y="24" class="logo-title">Levkin</text>
+            <text x="38" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <rect x="7" y="7" width="18" height="18" rx="2.5" fill="none" stroke="#c9a86c" stroke-width="1.5"/>
+          <text x="16" y="19.5" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="9" font-weight="500">LK</text>
+        </svg>
+        <span>Favicon: LK in thin square</span>
+      </div>
+      <p class="note">Thinner evolution of the old LK mark.</p>
+    </article>
+
+    <!-- G -->
+    <article class="card" id="g">
+      <div class="card-head"><h2>G · Folder tab</h2><span class="code">filing / site</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <path class="logo-mark" d="M2 20 L2 36 L26 36 L26 20 L19 20 L15 14 L7 14 L2 20 Z" />
+            <text x="36" y="24" class="logo-title">Levkin</text>
+            <text x="36" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <path class="logo-mark" d="M2 20 L2 36 L26 36 L26 20 L19 20 L15 14 L7 14 L2 20 Z" />
+            <text x="36" y="24" class="logo-title">Levkin</text>
+            <text x="36" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <path d="M7 14 L7 24 L25 24 L25 14 L19 14 L16 10 L10 10 L7 14 Z" fill="none" stroke="#c9a86c" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <span>Favicon: folder tab</span>
+      </div>
+      <p class="note">Ties to the manila-folder site metaphor.</p>
+    </article>
+
+    <!-- H -->
+    <article class="card" id="h">
+      <div class="card-head"><h2>H · Ticket square</h2><span class="code">done / handoff</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(2,14)">
+              <rect x="0" y="0" width="20" height="20" rx="2" />
+              <polyline points="5,10 9,14 15,6" />
+            </g>
+            <text x="32" y="24" class="logo-title">Levkin</text>
+            <text x="32" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark" transform="translate(2,14)">
+              <rect x="0" y="0" width="20" height="20" rx="2" />
+              <polyline points="5,10 9,14 15,6" />
+            </g>
+            <text x="32" y="24" class="logo-title">Levkin</text>
+            <text x="32" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <rect x="8" y="8" width="16" height="16" rx="2" fill="none" stroke="#c9a86c" stroke-width="1.6"/>
+          <polyline points="11.5,16 14.5,19 20.5,12.5" fill="none" stroke="#c9a86c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Favicon: checked ticket</span>
+      </div>
+      <p class="note">Production-ready / handoff — signed off.</p>
+    </article>
+
+    <!-- I -->
+    <article class="card" id="i">
+      <div class="card-head"><h2>I · Doc ID</h2><span class="code">LK-SPEC</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 58" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="12" class="logo-eyebrow">LK-SPEC · 1.0</text>
+            <text x="0" y="34" class="logo-title">Levkin</text>
+            <text x="0" y="52" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 58" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="12" class="logo-eyebrow">LK-SPEC · 1.0</text>
+            <text x="0" y="34" class="logo-title">Levkin</text>
+            <text x="0" y="52" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <text x="16" y="14" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="5.5" letter-spacing="0.08em">LK</text>
+          <text x="16" y="23" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="7" font-weight="500">1.0</text>
+        </svg>
+        <span>Favicon: LK / 1.0</span>
+      </div>
+      <p class="note">RFC / company-spec identity.</p>
+    </article>
+
+    <!-- J -->
+    <article class="card" id="j">
+      <div class="card-head"><h2>J · Path accent</h2><span class="code">route / URL</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="24" class="logo-title">Levkin</text>
+            <text x="0" y="44" class="logo-tagline">/ software · automation · ai-workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="24" class="logo-title">Levkin</text>
+            <text x="0" y="44" class="logo-tagline">/ software · automation · ai-workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <text x="16" y="21" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="16" font-weight="500">/</text>
+        </svg>
+        <span>Favicon: path slash</span>
+      </div>
+      <p class="note">Services as a path under the firm.</p>
+    </article>
+
+    <!-- K: { Levkin } — mono braces, wordmark only; tagline clear below -->
+    <article class="card" id="k">
+      <div class="card-head"><h2>K · Curly braces</h2><span class="code">object / block</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="26" class="logo-brace">{</text>
+            <text x="18" y="24" class="logo-title">Levkin</text>
+            <text x="102" y="26" class="logo-brace">}</text>
+            <text x="18" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <text x="0" y="26" class="logo-brace">{</text>
+            <text x="18" y="24" class="logo-title">Levkin</text>
+            <text x="102" y="26" class="logo-brace">}</text>
+            <text x="18" y="44" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <text x="10" y="21" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="14">{</text>
+          <text x="22" y="21" text-anchor="middle" fill="#c9a86c" font-family="'IBM Plex Mono', monospace" font-size="14">}</text>
+        </svg>
+        <span>Favicon: { }</span>
+      </div>
+      <p class="note">Single mono braces around the wordmark only — balanced { Levkin }.</p>
+    </article>
+
+    <!-- K2: drawn braces around wordmark line only -->
+    <article class="card" id="k2">
+      <div class="card-head"><h2>K2 · Drawn braces</h2><span class="code">optical</span></div>
+      <div class="row">
+        <div class="panel">
+          <p class="panel-label">Light</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark">
+              <path d="M12 6 C5 6 3 11 3 15 C3 18 1.5 19.5 1.5 19.5 C1.5 19.5 3 21 3 24 C3 28 5 33 12 33" />
+              <path d="M108 6 C115 6 117 11 117 15 C117 18 118.5 19.5 118.5 19.5 C118.5 19.5 117 21 117 24 C117 28 115 33 108 33" />
+            </g>
+            <text x="20" y="24" class="logo-title">Levkin</text>
+            <text x="20" y="46" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+        <div class="panel panel--dark">
+          <p class="panel-label">Dark</p>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin" class="logo-levkin">
+            <g class="logo-mark">
+              <path d="M12 6 C5 6 3 11 3 15 C3 18 1.5 19.5 1.5 19.5 C1.5 19.5 3 21 3 24 C3 28 5 33 12 33" />
+              <path d="M108 6 C115 6 117 11 117 15 C117 18 118.5 19.5 118.5 19.5 C118.5 19.5 117 21 117 24 C117 28 115 33 108 33" />
+            </g>
+            <text x="20" y="24" class="logo-title">Levkin</text>
+            <text x="20" y="46" class="logo-tagline">Custom software, automation &amp; AI workflows</text>
+          </svg>
+        </div>
+      </div>
+      <div class="favicon-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
+          <path d="M12 8 C8 8 7 11 7 14 C7 16 6 16.5 6 16.5 C6 16.5 7 17 7 19 C7 22 8 25 12 25" fill="none" stroke="#c9a86c" stroke-width="1.7" stroke-linecap="round"/>
+          <path d="M20 8 C24 8 25 11 25 14 C25 16 26 16.5 26 16.5 C26 16.5 25 17 25 19 C25 22 24 25 20 25" fill="none" stroke="#c9a86c" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+        <span>Favicon: drawn { }</span>
+      </div>
+      <p class="note">Hairline braces around the wordmark only — tagline clear underneath, no overlap.</p>
+    </article>
+  </div>
+</body>
+</html>
