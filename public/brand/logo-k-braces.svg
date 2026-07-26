@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 56" role="img" aria-label="Levkin">
+  <style>
+    .b { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 26px; font-weight: 400; fill: #1a1a18; opacity: 0.85; }
+    .t { font-family: Literata, Georgia, serif; font-size: 22px; font-weight: 600; fill: #1a1a18; letter-spacing: 0.02em; }
+    .s { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 9.5px; fill: #1a1a18; opacity: 0.72; }
+  </style>
+  <text x="0" y="26" class="b">{</text>
+  <text x="18" y="24" class="t">Levkin</text>
+  <text x="102" y="26" class="b">}</text>
+  <text x="18" y="44" class="s">Custom software, automation &amp; AI workflows</text>
+</svg>

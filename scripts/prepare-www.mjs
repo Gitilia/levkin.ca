@@ -34,9 +34,13 @@ execSync('npm run build', { cwd: root, stdio: 'inherit' });
 await rm(www, { recursive: true, force: true });
 await mkdir(join(www, 'assets'), { recursive: true });
 await mkdir(join(www, 'folders'), { recursive: true });
+await mkdir(join(www, 'logo'), { recursive: true });
 
 await cp(join(dist, 'assets'), join(www, 'assets'), { recursive: true });
 await cp(join(root, 'public', 'favicon.svg'), join(www, 'favicon.svg'));
+await cp(join(root, 'public', 'logo-lockup.svg'), join(www, 'logo-lockup.svg'));
+await cp(join(root, 'public', 'logo-wordmark.svg'), join(www, 'logo-wordmark.svg'));
+await cp(join(root, 'public', 'brand'), join(www, 'brand'), { recursive: true });
 await cp(join(root, 'public', 'robots.txt'), join(www, 'robots.txt'));
 await cp(join(root, 'public', 'sitemap.xml'), join(www, 'sitemap.xml'));
 await cp(join(root, 'public', 'og-image.png'), join(www, 'og-image.png'));
@@ -59,5 +63,8 @@ await writeFile(
   ]),
   'utf8',
 );
+
+const logoHtml = await readFile(join(dist, 'logo', 'index.html'), 'utf8');
+await writeFile(join(www, 'logo', 'index.html'), injectUmami(logoHtml), 'utf8');
 
 console.log(`www/ ready (Umami id: ${umamiId})`);

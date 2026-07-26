@@ -359,6 +359,14 @@ a:hover { color: var(--link-hover); }
   margin-bottom: 0.75rem;
 }
 
+.brand-mark {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 0.85rem;
+  border-radius: 0.55rem;
+}
+
 .letterhead h1 {
   font-size: 1.5rem;
   font-weight: 600;
