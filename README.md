@@ -2,6 +2,8 @@
 
 Homepage design concepts for Levkin Inc.
 
+**Status:** active. **Production:** [levkin.ca](https://levkin.ca) (`/` → spec, `/folders/` → stack).
+
 | Page | Path | Description |
 |------|------|-------------|
 | **Spec** | `/spec/` | Company story as RFC-style documentation |
@@ -82,3 +84,7 @@ Production: [levkin.ca/folders/](https://levkin.ca/folders/) — on viewports �
 - [github.com/Gitilia](https://github.com/Gitilia) (public mirrors)
 - [cal.levkin.ca](https://cal.levkin.ca/ilia/consult)
 - [iliadobkin.com](https://iliadobkin.com)
+
+## License
+
+Private repo.
