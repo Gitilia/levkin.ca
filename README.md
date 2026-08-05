@@ -79,6 +79,6 @@ Production: [levkin.ca/folders/](https://levkin.ca/folders/) â€” on viewports â‰
 
 - [auto.levkin.ca](https://auto.levkin.ca)
 - [caseware.levkin.ca](https://caseware.levkin.ca)
-- [git.levkin.ca](https://git.levkin.ca)
+- [github.com/Gitilia](https://github.com/Gitilia) (public mirrors)
 - [cal.levkin.ca](https://cal.levkin.ca/ilia/consult)
 - [iliadobkin.com](https://iliadobkin.com)
