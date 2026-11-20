@@ -3,6 +3,7 @@
  * Build Vite output and lay out www/ for production nginx:
  *   /           → spec
  *   /folders/   → stack-folder
+ *   /ops/       → field assistant landing page
  */
 import { cp, mkdir, rm, readFile, writeFile } from 'fs/promises';
 import { execSync } from 'child_process';
@@ -35,6 +36,7 @@ await rm(www, { recursive: true, force: true });
 await mkdir(join(www, 'assets'), { recursive: true });
 await mkdir(join(www, 'folders'), { recursive: true });
 await mkdir(join(www, 'logo'), { recursive: true });
+await mkdir(join(www, 'ops'), { recursive: true });
 
 await cp(join(dist, 'assets'), join(www, 'assets'), { recursive: true });
 await cp(join(root, 'public', 'favicon.svg'), join(www, 'favicon.svg'));
@@ -66,5 +68,9 @@ await writeFile(
 
 const logoHtml = await readFile(join(dist, 'logo', 'index.html'), 'utf8');
 await writeFile(join(www, 'logo', 'index.html'), injectUmami(logoHtml), 'utf8');
+
+const opsHtml = await readFile(join(dist, 'ops', 'index.html'), 'utf8');
+await writeFile(join(www, 'ops', 'index.html'), injectUmami(opsHtml), 'utf8');
+await cp(join(root, 'public', 'ops'), join(www, 'ops'), { recursive: true });
 
 console.log(`www/ ready (Umami id: ${umamiId})`);

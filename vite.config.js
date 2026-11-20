@@ -14,6 +14,7 @@ export default defineConfig({
         spec: resolve(__dirname, 'spec/index.html'),
         stackFolder: resolve(__dirname, 'stack-folder/index.html'),
         logo: resolve(__dirname, 'logo/index.html'),
+        ops: resolve(__dirname, 'ops/index.html'),
       },
     },
   },
