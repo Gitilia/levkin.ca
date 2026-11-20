@@ -207,6 +207,34 @@ h3 {
   margin-top: 12px;
 }
 
+.more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.more figure {
+  margin: 0;
+}
+
+.more img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 28px;
+  border: 10px solid #0d0d0d;
+  background: #0d0d0d;
+  box-shadow: 0 2px 4px rgba(26, 26, 24, 0.06), 0 16px 48px rgba(26, 26, 24, 0.18);
+}
+
+.more figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 12px;
+  max-width: 280px;
+}
+
 .band {
   border-top: 1px solid var(--rule);
   padding: 40px 0;
@@ -315,9 +343,10 @@ summary {
     padding-top: 12px;
   }
 
-  .cols {
+  .cols,
+  .more {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 28px;
   }
 
   .top-cta {
