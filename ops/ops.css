@@ -312,24 +312,28 @@ h3 {
   margin: 16px 0 0;
 }
 
-.cost {
+.cost,
+.safe {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-.cost > div {
+.cost > div,
+.safe > div {
   background: var(--sheet);
   border: 1px solid var(--rule);
   border-radius: 8px;
   padding: 18px 20px;
 }
 
-.cost h3 {
+.cost h3,
+.safe h3 {
   margin: 0 0 0.4em;
 }
 
-.cost p {
+.cost p,
+.safe p {
   margin: 0;
   color: var(--muted);
 }
@@ -411,6 +415,7 @@ h3 {
   .offer,
   .shop,
   .cost,
+  .safe,
   .clips {
     grid-template-columns: 1fr;
   }
