@@ -253,13 +253,18 @@ h3 {
 
 .clips {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 32px;
   justify-items: center;
 }
 
 .clips .phone {
   max-width: 300px;
+}
+
+.clips .phone video {
+  aspect-ratio: 660 / 1316;
+  object-fit: contain;
 }
 
 .note {
